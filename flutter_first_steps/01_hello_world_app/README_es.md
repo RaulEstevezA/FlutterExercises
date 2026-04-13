@@ -29,9 +29,3 @@ Este proyecto marca la transición desde el aprendizaje de Dart hacia el desarro
 
 El enfoque está en comprender cómo se estructuran las aplicaciones en Flutter y cómo se utilizan los widgets para construir interfaces.
 
-## Próximos pasos
-
-- Aprender widgets de layout (Column, Row, Padding)  
-- Gestionar entrada del usuario  
-- Introducir navegación entre pantallas  
-- Conectar la aplicación con APIs externas  

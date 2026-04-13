@@ -29,9 +29,3 @@ This project marks the transition from learning Dart fundamentals to starting Fl
 
 The focus is on understanding how Flutter applications are structured and how widgets are used to build interfaces.
 
-## Next Steps
-
-- Learn layout widgets (Column, Row, Padding)  
-- Handle user input  
-- Introduce navigation between screens  
-- Connect the app to external APIs  
