@@ -1,17 +1,37 @@
-# hello_world_app
+# Flutter Hello World App
 
-A new Flutter project.
+This project is my first Flutter application, created as an introduction to the framework.
 
-## Getting Started
+## Overview
 
-This project is a starting point for a Flutter application.
+The goal of this app is to understand the basic structure of a Flutter project and how a simple user interface is built using widgets.
 
-A few resources to get you started if this is your first Flutter project:
+The application displays a centered text on the screen using Flutter's core components.
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+## Screenshot
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<p align="center">
+  <img src="hello_world_app.png" width="150">
+</p>
+
+## Key Concepts
+
+- main() as the application entry point  
+- runApp() to initialize the widget tree  
+- StatelessWidget as the base structure of the app  
+- MaterialApp for basic app configuration  
+- Scaffold as the main layout structure  
+- Center and Text widgets to build the UI  
+
+## Purpose
+
+This project marks the transition from learning Dart fundamentals to starting Flutter development.
+
+The focus is on understanding how Flutter applications are structured and how widgets are used to build interfaces.
+
+## Next Steps
+
+- Learn layout widgets (Column, Row, Padding)  
+- Handle user input  
+- Introduce navigation between screens  
+- Connect the app to external APIs  
