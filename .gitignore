@@ -7,6 +7,9 @@
 .buildlog/
 .history
 
+# MacOS
+.DS_Store
+
 
 
 # Flutter repo-specific
