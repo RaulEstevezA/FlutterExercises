@@ -42,6 +42,3 @@ Este proyecto amplía los conceptos básicos de Flutter introduciendo widgets co
 
 El enfoque está en entender cómo las interacciones del usuario afectan a la interfaz y cómo se gestiona el estado dentro de la aplicación.
 
----
-
-Este proyecto representa un avance en mi aprendizaje de Flutter, pasando de interfaces estáticas a aplicaciones interactivas.

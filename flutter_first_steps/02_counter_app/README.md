@@ -42,6 +42,3 @@ This project builds upon the basics of Flutter by introducing stateful widgets a
 
 The focus is on understanding how user interactions affect the UI and how to control application state.
 
----
-
-This project represents a step forward in my Flutter learning path, moving from static UI to interactive applications.
