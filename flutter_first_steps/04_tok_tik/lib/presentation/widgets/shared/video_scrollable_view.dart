@@ -35,22 +35,3 @@ class VideoScrollableView extends StatelessWidget {
 }
 
 
-class _CustomIconButtom extends StatelessWidget {
-
-  final int value;
-  final IconData iconData;
-  final Color color;
-
-
-
-  const _CustomIconButtom({
-    required this.value, 
-    required this.iconData, 
-    required this.color
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
