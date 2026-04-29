@@ -4,7 +4,7 @@ Este proyecto es una aplicación en Flutter inspirada en TikTok. Muestra un feed
 
 ## Descripción
 
-La aplicación carga una lista local de publicaciones de video y las presenta en una experiencia de pantalla completa. Cada video se muestra dentro de un `PageView` vertical, permitiendo al usuario desplazarse entre publicaciones como en un feed de videos cortos.
+La aplicación carga una lista local de publicaciones de video mediante un flujo simple por capas y las presenta en una experiencia de pantalla completa. Cada video se muestra dentro de un `PageView` vertical, permitiendo al usuario desplazarse entre publicaciones como en un feed de videos cortos.
 
 Cada publicación incluye:
 
@@ -14,7 +14,7 @@ Cada publicación incluye:
 - Un contador de vistas
 - Botones de acción animados
 
-Este proyecto está enfocado en entender la reproducción de video, el uso de assets locales, la gestión de estado, el mapeo de modelos y la composición de interfaces de pantalla completa en Flutter.
+Este proyecto está enfocado en entender la reproducción de video, el uso de assets locales, la gestión de estado, la separación entre repositorios y fuentes de datos, el mapeo de modelos, el uso de entidades y la composición de interfaces de pantalla completa en Flutter.
 
 ## Captura
 
@@ -28,6 +28,8 @@ Este proyecto está enfocado en entender la reproducción de video, el uso de as
 - ChangeNotifier para actualizar la interfaz
 - Videos locales como assets en Flutter
 - Reproducción de video con video_player
+- Abstracciones de repositorio y fuente de datos
+- Inyección de dependencias desde main.dart
 - Mapeo de datos locales a modelos de Dart
 - Separación entre entidades y modelos
 - Navegación vertical usando PageView.builder
@@ -46,8 +48,21 @@ Este proyecto está enfocado en entender la reproducción de video, el uso de as
 - Mostrar likes y vistas de cada publicación
 - Formatear números grandes en valores legibles
 - Mostrar botones de acción animados
-- Cargar los datos de videos mediante un Provider
+- Cargar los datos de videos mediante un Provider respaldado por un repositorio
 - Tema oscuro personalizado con Material 3
+
+## Flujo de datos de videos
+
+El flujo de carga de videos está separado por responsabilidades:
+
+1. `shared/data/local_video_post.dart` mantiene los datos locales crudos de los videos como una lista de mapas.
+2. `LocalVideoDatasource` implementa `VideoPostDataSource` y sabe cómo leer esos datos locales.
+3. `LocalVideoModel` mapea cada mapa local a un modelo de Dart y lo convierte en la entidad de dominio `VideoPost`.
+4. `VideoPostsRepositoryImpl` implementa `VideoPostRepository` y delega la obtención de videos en el datasource configurado.
+5. `DiscoverProvider` depende solo de `VideoPostRepository`, solicita la siguiente página de videos, actualiza el estado y notifica a la interfaz.
+6. `main.dart` conecta las dependencias concretas creando un `VideoPostsRepositoryImpl` con `LocalVideoDatasource` e inyectándolo en `DiscoverProvider`.
+
+Esto mantiene la capa de presentación independiente de la fuente de datos concreta. Si más adelante la app lee videos desde una API en lugar de datos locales, el provider puede seguir usando el mismo contrato del repositorio.
 
 ## Tecnologías
 
@@ -62,4 +77,4 @@ Este proyecto está enfocado en entender la reproducción de video, el uso de as
 
 Este proyecto amplía ejercicios anteriores de Flutter introduciendo una aplicación más visual y centrada en contenido multimedia.
 
-El objetivo es conectar datos locales con la capa de presentación, gestionar el estado con Provider, reproducir videos locales y construir una experiencia móvil de pantalla completa similar a las aplicaciones modernas de videos cortos.
+El objetivo es conectar datos locales con la capa de presentación mediante contratos de dominio, gestionar el estado con Provider, reproducir videos locales y construir una experiencia móvil de pantalla completa similar a las aplicaciones modernas de videos cortos.
