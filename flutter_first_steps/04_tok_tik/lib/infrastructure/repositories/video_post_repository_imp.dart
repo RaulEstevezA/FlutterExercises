@@ -3,15 +3,15 @@ import 'package:tok_tik/domain/entitites/video_post.dart';
 import 'package:tok_tik/domain/repositories/video_post_repository.dart';
 
 
-class VideoPostsRepository implements VideoPostRepository {
+class VideoPostsRepositoryImpl implements VideoPostRepository {
 
-  final VideoPostDataSource videoPostDatasource;
+  final VideoPostDataSource videosPostDatasource;
 
-  VideoPostsRepository({required this.videoPostDatasource});
+  VideoPostsRepositoryImpl({required this.videosPostDatasource});
 
   @override
   Future<List<VideoPost>> getTrendingvideosByPage(int page) {
-    return videoPostDatasource.getTrendingvideosByPage(page);
+    return videosPostDatasource.getTrendingvideosByPage(page);
   }
 
   @override

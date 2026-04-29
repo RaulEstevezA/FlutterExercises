@@ -11,7 +11,7 @@ class DiscoverProvider extends ChangeNotifier {
   bool initialLoading = true;
   List<VideoPost> videos = [];
 
-  DiscoverProvider({required this.videosRepository});
+  DiscoverProvider({required this.videosRepository, });
 
   Future<void> loadNextPage() async{
 
