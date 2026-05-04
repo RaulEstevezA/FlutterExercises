@@ -60,7 +60,13 @@ class _ButtonsView extends StatelessWidget {
               icon: const Icon(Icons.access_alarm),
               label: const Text('Outlined Icon')),
 
+            TextButton(onPressed: (){}, child: const Text('Text')),
+            TextButton.icon(
+              onPressed: (){},
+              icon: const Icon(Icons.abc),
+              label: const Text('Text Icon')),
 
+            // todo:custom botton
           ],
         ),
       ),
