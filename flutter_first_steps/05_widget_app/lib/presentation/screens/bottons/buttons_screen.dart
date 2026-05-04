@@ -42,7 +42,7 @@ class _ButtonsView extends StatelessWidget {
           alignment: WrapAlignment.center,
           children: [
             const ElevatedButton(onPressed: null, child: Text('Elevated Disable')),
-            
+
             const SizedBox(width: double.infinity),
             ElevatedButton(onPressed: (){}, child: const Text('Elevated')),
             
@@ -73,8 +73,6 @@ class _ButtonsView extends StatelessWidget {
               icon: const Icon(Icons.abc),
               label: const Text('Text Icon')),
 
-            // todo:custom botton
-
             const SizedBox(width: double.infinity),
             IconButton(onPressed: (){}, icon: const Icon(Icons.app_registration_rounded)),
 
@@ -82,10 +80,35 @@ class _ButtonsView extends StatelessWidget {
               icon: const Icon(Icons.app_registration_rounded),
               style: ButtonStyle(
                 backgroundColor:  WidgetStatePropertyAll(colors.primary),
-                iconColor:  WidgetStatePropertyAll(Colors.white),
-              )
-            ),
+                iconColor:  WidgetStatePropertyAll(Colors.white))),
+
+            const SizedBox(width: double.infinity),
+            const CustomButton(),
+
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class CustomButton extends StatelessWidget {
+  const CustomButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+
+    final colors = Theme.of(context).colorScheme;
+
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(20),
+      child: Material(
+        color: colors.primary,
+        child: InkWell(
+          onTap: (){},
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+            child: Text('Hola Mundo', style: TextStyle(color: Colors.white),)),
         ),
       ),
     );
