@@ -29,19 +29,26 @@ class _ButtonsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-      child: Wrap(
-        spacing: 10,
-        children: [
-          ElevatedButton(onPressed: (){}, child: const Text('Elevated')),
-          const ElevatedButton(onPressed: null, child: Text('Elevated Disable')),
+    return SizedBox(
+      width: double.infinity,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+        child: Wrap(
+          spacing: 10,
+          crossAxisAlignment: WrapCrossAlignment.center,
+          alignment: WrapAlignment.center,
+          children: [
+            ElevatedButton(onPressed: (){}, child: const Text('Elevated')),
+            const ElevatedButton(onPressed: null, child: Text('Elevated Disable')),
+      
+            ElevatedButton.icon(
+              onPressed: (){}, 
+              icon: const Icon(Icons.access_alarm_rounded), 
+              label: Text('Elevated Icon')),
 
-          ElevatedButton.icon(
-            onPressed: (){}, 
-            icon: const Icon(Icons.access_alarm_rounded), 
-            label: Text('Elevated Icon')),
-        ],
+            FilledButton(onPressed: (){}, child: const Text('Filled'))
+          ],
+        ),
       ),
     );
   }
