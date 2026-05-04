@@ -29,6 +29,13 @@ class _ButtonsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+      child: Wrap(
+        children: [
+          ElevatedButton(onPressed: (){}, child: const Text('Elevated Button')),
+        ],
+      ),
+    );
   }
 }
