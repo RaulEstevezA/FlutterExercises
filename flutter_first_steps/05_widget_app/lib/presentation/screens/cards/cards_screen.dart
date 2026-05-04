@@ -31,14 +31,16 @@ class _CardsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-
-        ...cards.map(
-          (card) => _CardType1(elevation: card['elevation'], label: card['label'],)
-        )
-
-      ],
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+      
+          ...cards.map(
+            (card) => _CardType1(elevation: card['elevation'], label: card['label'],)
+          )
+      
+        ],
+      ),
     );
   }
 }
