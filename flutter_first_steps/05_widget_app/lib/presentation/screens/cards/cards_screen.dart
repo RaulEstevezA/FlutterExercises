@@ -36,7 +36,7 @@ class _CardsView extends StatelessWidget {
 
         ...cards.map(
           (card) => _CardType1(elevation: card['elevation'], label: card['label'],)
-          )
+        )
 
       ],
     );
@@ -60,7 +60,11 @@ class _CardType1 extends StatelessWidget {
         padding: const EdgeInsets.fromLTRB(10, 5, 10, 10),
         child: Column(
           children: [
-            Icon(Icons.more_vert_outlined)
+            Align(
+              alignment: Alignment.topRight,
+              child: IconButton(
+                onPressed: (){}, 
+                icon: const Icon(Icons.more_vert_outlined)))
           ],
         ),
       ),
