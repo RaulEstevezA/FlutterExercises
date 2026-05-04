@@ -34,19 +34,27 @@ class _ButtonsView extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
         child: Wrap(
-          spacing: 10,
+          spacing: 40,
           crossAxisAlignment: WrapCrossAlignment.center,
           alignment: WrapAlignment.center,
           children: [
-            ElevatedButton(onPressed: (){}, child: const Text('Elevated')),
             const ElevatedButton(onPressed: null, child: Text('Elevated Disable')),
+            const SizedBox(width: double.infinity),
+            ElevatedButton(onPressed: (){}, child: const Text('Elevated')),
+            
       
             ElevatedButton.icon(
               onPressed: (){}, 
               icon: const Icon(Icons.access_alarm_rounded), 
-              label: Text('Elevated Icon')),
+              label: const Text('Elevated Icon')),
 
-            FilledButton(onPressed: (){}, child: const Text('Filled'))
+            FilledButton(onPressed: (){}, child: const Text('Filled')),
+            FilledButton.icon(
+              onPressed: (){},
+              icon: const Icon(Icons.accessibility_new),
+              label: const Text('Filled Icon')),
+
+
           ],
         ),
       ),
