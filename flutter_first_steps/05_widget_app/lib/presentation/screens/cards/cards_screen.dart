@@ -64,7 +64,13 @@ class _CardType1 extends StatelessWidget {
               alignment: Alignment.topRight,
               child: IconButton(
                 onPressed: (){}, 
-                icon: const Icon(Icons.more_vert_outlined)))
+                icon: const Icon(Icons.more_vert_outlined),
+              ),
+            ),
+          Align(
+            alignment: Alignment.bottomLeft,
+            child: Text(label),
+          )
           ],
         ),
       ),
