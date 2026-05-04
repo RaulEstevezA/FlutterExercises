@@ -54,6 +54,12 @@ class _ButtonsView extends StatelessWidget {
               icon: const Icon(Icons.accessibility_new),
               label: const Text('Filled Icon')),
 
+            OutlinedButton(onPressed: (){}, child: const Text('Outlined')),
+            OutlinedButton.icon(
+              onPressed: (){}, 
+              icon: const Icon(Icons.access_alarm),
+              label: const Text('Outlined Icon')),
+
 
           ],
         ),
