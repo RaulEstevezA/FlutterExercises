@@ -35,8 +35,12 @@ class _ButtonsView extends StatelessWidget {
         spacing: 10,
         children: [
           ElevatedButton(onPressed: (){}, child: const Text('Elevated')),
-          const ElevatedButton(onPressed: null, child: const Text('Elevated Disable')),
-          
+          const ElevatedButton(onPressed: null, child: Text('Elevated Disable')),
+
+          ElevatedButton.icon(
+            onPressed: (){}, 
+            icon: const Icon(Icons.access_alarm_rounded), 
+            label: Text('Elevated Icon')),
         ],
       ),
     );
