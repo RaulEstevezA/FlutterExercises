@@ -67,6 +67,9 @@ class _ButtonsView extends StatelessWidget {
               label: const Text('Text Icon')),
 
             // todo:custom botton
+
+            const SizedBox(width: double.infinity),
+            IconButton(onPressed: (){}, icon: const Icon(Icons.app_registration_rounded)),
           ],
         ),
       ),
