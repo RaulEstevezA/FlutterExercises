@@ -32,8 +32,11 @@ class _ButtonsView extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
       child: Wrap(
+        spacing: 10,
         children: [
-          ElevatedButton(onPressed: (){}, child: const Text('Elevated Button')),
+          ElevatedButton(onPressed: (){}, child: const Text('Elevated')),
+          const ElevatedButton(onPressed: null, child: const Text('Elevated Disable')),
+          
         ],
       ),
     );
