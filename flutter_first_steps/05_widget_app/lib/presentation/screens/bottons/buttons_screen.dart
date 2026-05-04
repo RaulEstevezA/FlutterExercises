@@ -29,6 +29,9 @@ class _ButtonsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final colors = Theme.of(context).colorScheme;
+
     return SizedBox(
       width: double.infinity,
       child: Padding(
@@ -39,6 +42,7 @@ class _ButtonsView extends StatelessWidget {
           alignment: WrapAlignment.center,
           children: [
             const ElevatedButton(onPressed: null, child: Text('Elevated Disable')),
+            
             const SizedBox(width: double.infinity),
             ElevatedButton(onPressed: (){}, child: const Text('Elevated')),
             
@@ -49,18 +53,21 @@ class _ButtonsView extends StatelessWidget {
               label: const Text('Elevated Icon')),
 
             FilledButton(onPressed: (){}, child: const Text('Filled')),
+
             FilledButton.icon(
               onPressed: (){},
               icon: const Icon(Icons.accessibility_new),
               label: const Text('Filled Icon')),
 
             OutlinedButton(onPressed: (){}, child: const Text('Outlined')),
+
             OutlinedButton.icon(
               onPressed: (){}, 
               icon: const Icon(Icons.access_alarm),
               label: const Text('Outlined Icon')),
 
             TextButton(onPressed: (){}, child: const Text('Text')),
+
             TextButton.icon(
               onPressed: (){},
               icon: const Icon(Icons.abc),
@@ -70,6 +77,14 @@ class _ButtonsView extends StatelessWidget {
 
             const SizedBox(width: double.infinity),
             IconButton(onPressed: (){}, icon: const Icon(Icons.app_registration_rounded)),
+
+            IconButton(onPressed: (){}, 
+              icon: const Icon(Icons.app_registration_rounded),
+              style: ButtonStyle(
+                backgroundColor:  WidgetStatePropertyAll(colors.primary),
+                iconColor:  WidgetStatePropertyAll(Colors.white),
+              )
+            ),
           ],
         ),
       ),
