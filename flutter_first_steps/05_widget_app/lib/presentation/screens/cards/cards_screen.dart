@@ -182,3 +182,42 @@ class _CardType3 extends StatelessWidget {
     );
   }
 }
+
+class _CardType4 extends StatelessWidget {
+
+  final String label;
+  final double elevation;
+
+  const _CardType4({
+    required this.label, 
+    required this.elevation});
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      elevation: elevation,
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(10, 5, 10, 10),
+        child: Stack(
+          children: [
+            Image.network(
+              'https://picsum.photos/id/${ elevation.toInt() }/600/250'
+            ),
+
+            Align(
+              alignment: Alignment.topRight,
+              child: IconButton(
+                onPressed: (){}, 
+                icon: const Icon(Icons.more_vert_outlined),
+              ),
+            ),
+            Align(
+              alignment: Alignment.bottomLeft,
+              child: Text('$label - image'),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
