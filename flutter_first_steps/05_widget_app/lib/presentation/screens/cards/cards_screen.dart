@@ -43,6 +43,11 @@ class _CardsView extends StatelessWidget {
             (card) => _CardType2(elevation: card['elevation'], label: card['label'],)
           ),
 
+          ...cards.map(
+            (card) => _CardType3(elevation: card['elevation'], label: card['label'],)
+          ),
+
+
           const SizedBox(height: 50),
 
         ],
@@ -148,7 +153,7 @@ class _CardType3 extends StatelessWidget {
     final colors = Theme.of(context).colorScheme;
 
     return Card(
-      color: colors.surface,
+      color: colors.onSurfaceVariant,
       shape: RoundedRectangleBorder(
         borderRadius: const BorderRadius.all(Radius.circular(12)),
         side: BorderSide(
@@ -169,7 +174,7 @@ class _CardType3 extends StatelessWidget {
             ),
           Align(
             alignment: Alignment.bottomLeft,
-            child: Text('$label - Filled'),
+            child: Text('$label - Filled', style: TextStyle(color: Colors.white),),
           )
           ],
         ),
