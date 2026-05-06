@@ -8,6 +8,16 @@ class SnackbarScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Snackbars y Diálogos'),
+      ),
+
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: (){},
+        icon: const Icon(Icons.remove_red_eye_outlined),
+        label: const Text('Mostrar Snackbar')),
+        
+    );
   }
 }
