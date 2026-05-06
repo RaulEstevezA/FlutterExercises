@@ -8,6 +8,8 @@ class SnackbarScreen extends StatelessWidget {
 
   void showCustomSnackbar (BuildContext context) {
 
+    ScaffoldMessenger.of(context).clearSnackBars();
+    
     final snackBar = SnackBar(content: const Text('Hola Mundo'));
 
 
