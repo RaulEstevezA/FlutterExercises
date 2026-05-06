@@ -44,7 +44,7 @@ const appMenuItems = <MenuItems>[
 
   MenuItems(
     title: 'Snackbars y diálogos',
-    subTitle: 'Botones flotantes',
+    subTitle: 'Snackbar y boton flotante',
     link: '/snackbars',
     icon: Icons.info_outline,
   ),
