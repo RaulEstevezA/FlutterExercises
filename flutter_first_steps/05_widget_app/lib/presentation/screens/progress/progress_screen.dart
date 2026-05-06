@@ -24,13 +24,30 @@ class _ProgressView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Column(
-        children: [
-          const SizedBox(height: 30),
+        children: const [
+          SizedBox(height: 30),
           Text('Circular progress indicator'),
-          const SizedBox(height: 10),
-          CircularProgressIndicator(strokeWidth: 2, backgroundColor: Colors.black45,)
+
+          SizedBox(height: 10),
+          CircularProgressIndicator(strokeWidth: 2, backgroundColor: Colors.black45,),
+
+          SizedBox(height: 20),
+          Text('Circular indicator controlado'),
+
+          SizedBox(height: 20),
+          _ControllerProgressIndicator(),
+        
         ],
       ),
     );
+  }
+}
+
+class _ControllerProgressIndicator extends StatelessWidget {
+  const _ControllerProgressIndicator();
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }
