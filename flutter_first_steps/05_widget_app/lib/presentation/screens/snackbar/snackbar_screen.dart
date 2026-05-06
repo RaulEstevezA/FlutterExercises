@@ -13,6 +13,7 @@ class SnackbarScreen extends StatelessWidget {
     final snackBar = SnackBar(
       content: const Text('Hola Mundo'),
       action: SnackBarAction(label: 'Ok!', onPressed: (){}),
+      duration: const Duration(seconds: 2),
       );
 
 
