@@ -32,7 +32,7 @@ class _ProgressView extends StatelessWidget {
           CircularProgressIndicator(strokeWidth: 2, backgroundColor: Colors.black45,),
 
           SizedBox(height: 20),
-          Text('Circular indicator controlado'),
+          Text('Circular y Lineal indicator controlado'),
 
           SizedBox(height: 20),
           _ControllerProgressIndicator(),
