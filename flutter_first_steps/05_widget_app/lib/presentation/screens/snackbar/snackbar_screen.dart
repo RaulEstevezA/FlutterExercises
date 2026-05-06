@@ -14,10 +14,13 @@ class SnackbarScreen extends StatelessWidget {
       ),
 
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: (){},
+        onPressed: (){
+          
+          ScaffoldMessenger.of(context).showSnackBar( SnackBar(content: const Text('Hola Mundo')));
+
+        },
         icon: const Icon(Icons.remove_red_eye_outlined),
         label: const Text('Mostrar Snackbar')),
-        
     );
   }
 }
