@@ -53,14 +53,17 @@ class _ControllerProgressIndicator extends StatelessWidget {
         return (value * 2)/100;
       }).takeWhile((value) => value < 100), 
       builder: (context, snapshot) {
+
+        final progressValue = snapshot.data ?? 0;
+
         return Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Row(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CircularProgressIndicator(value: 0.5, strokeAlign: 2, backgroundColor: Colors.black12),
-            const SizedBox(width: 20),
-            Expanded(child: LinearProgressIndicator(value: 0.5))
+            CircularProgressIndicator(value: progressValue, strokeAlign: 2, backgroundColor: Colors.black12),
+            const SizedBox(height: 20),
+            LinearProgressIndicator(value: progressValue)
           ],
         ),
       );
