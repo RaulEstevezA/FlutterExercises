@@ -43,11 +43,11 @@ class _AnimatedScreenState extends State<AnimatedScreen> {
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 400),
           curve: Curves.easeOutCubic,
-          width: width,
-          height: height,
+          width: width <= 0 ? 0 : width,
+          height: height <= 0 ? 0 : height,
           decoration: BoxDecoration(
             color: color,
-            borderRadius: BorderRadius.circular(borderRadius),
+            borderRadius: BorderRadius.circular(borderRadius < 0 ? 0 : borderRadius),
           ),
         ),
       ),
