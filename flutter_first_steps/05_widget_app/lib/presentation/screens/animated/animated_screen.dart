@@ -29,11 +29,11 @@ class _AnimatedScreenState extends State<AnimatedScreen> {
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 400),
           curve: Curves.easeOutCubic,
-          width: 100,
-          height: 100,
+          width: width,
+          height: height,
           decoration: BoxDecoration(
-            color: Colors.blue,
-            borderRadius: BorderRadius.circular(20),
+            color: color,
+            borderRadius: BorderRadius.circular(borderRadius),
           ),
         ),
       ),
