@@ -8,6 +8,15 @@ class AnimatedScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Animated Container'),
+      ),
+
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){},
+        child: const Icon(Icons.play_arrow_rounded)
+      ),
+    );
   }
 }
