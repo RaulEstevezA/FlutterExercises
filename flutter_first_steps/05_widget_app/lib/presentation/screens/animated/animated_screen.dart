@@ -23,6 +23,7 @@ class _AnimatedScreenState extends State<AnimatedScreen> {
     final random = Random();
 
     width = random.nextInt(300) + 50;
+    height = (random.nextDouble() * 100) + 50;
 
 
 
