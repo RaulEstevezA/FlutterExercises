@@ -31,6 +31,7 @@ class SnackbarScreen extends StatelessWidget {
 
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             FilledButton.tonal(
               onPressed: (){}, 
