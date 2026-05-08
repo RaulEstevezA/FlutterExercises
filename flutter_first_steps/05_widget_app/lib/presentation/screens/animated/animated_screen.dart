@@ -23,9 +23,11 @@ class _AnimatedScreenState extends State<AnimatedScreen> {
     final random = Random();
 
     width = random.nextInt(300) + 50;
-    height = (random.nextDouble() * 100) + 50;
+    height = (random.nextDouble() * 500) + 50;
+    //color = random.
+    borderRadius = (random.nextDouble() * 50) + 10;
 
-
+    setState(() { });
 
   }
 
