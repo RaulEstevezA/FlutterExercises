@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:widget_app/config/theme/app_theme.dart';
 
 class SnackbarScreen extends StatelessWidget {
 
@@ -26,6 +27,19 @@ class SnackbarScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Snackbars y Diálogos'),
       ),
+
+
+      body: Center(
+        child: Column(
+          children: [
+            FilledButton.tonal(
+              onPressed: (){}, 
+              child: const Text('Licencias usadas'))
+          ],
+        ),
+      ),
+
+
 
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () => showCustomSnackbar(context),
