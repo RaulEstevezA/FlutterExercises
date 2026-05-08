@@ -8,6 +8,21 @@ class UiControlsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Ui Controls'),
+      ),
+      body: const _UiControlsView(),
+
+    );
+  }
+}
+
+class _UiControlsView extends StatelessWidget {
+  const _UiControlsView();
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView();
   }
 }
