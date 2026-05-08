@@ -1,10 +1,21 @@
 import 'package:flutter/material.dart';
 
-class AnimatedScreen extends StatelessWidget {
+class AnimatedScreen extends StatefulWidget {
 
   static const name = 'animated_screen';
 
   const AnimatedScreen({super.key});
+
+  @override
+  State<AnimatedScreen> createState() => _AnimatedScreenState();
+}
+
+class _AnimatedScreenState extends State<AnimatedScreen> {
+
+  double width = 50;
+  double height = 50;
+  Color color = Colors.indigo;
+  double borderRadius = 10.0;
 
   @override
   Widget build(BuildContext context) {
