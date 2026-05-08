@@ -18,8 +18,16 @@ class UiControlsScreen extends StatelessWidget {
   }
 }
 
-class _UiControlsView extends StatelessWidget {
+class _UiControlsView extends StatefulWidget {
   const _UiControlsView();
+
+  @override
+  State<_UiControlsView> createState() => _UiControlsViewState();
+}
+
+class _UiControlsViewState extends State<_UiControlsView> {
+
+  bool isDeveloper = true;
 
   @override
   Widget build(BuildContext context) {
@@ -29,10 +37,11 @@ class _UiControlsView extends StatelessWidget {
         SwitchListTile(
           title: const Text('Developer Mode'),
           subtitle: const Text('Controles adicionales'),
-          value: true, 
-          onChanged: (value){
-
-        }) 
+          value: isDeveloper, 
+          onChanged: (value) => setState(() {
+            isDeveloper = !isDeveloper;
+          }),
+        ), 
       ],
     );
   }
