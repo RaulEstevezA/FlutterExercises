@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:widget_app/config/theme/app_theme.dart';
 
 class SnackbarScreen extends StatelessWidget {
@@ -30,8 +31,8 @@ class SnackbarScreen extends StatelessWidget {
         title: const Text('¿Estás seguro?'),
         content: Text('Excepteur tempor cillum labore consequat et pariatur ullamco commodo sunt voluptate id pariatur sit. Qui ipsum eu ipsum eu culpa sunt irure labore nulla ipsum laborum. Eu occaecat Lorem magna sint dolore deserunt proident ex commodo commodo.'),
         actions: [
-          TextButton(onPressed: (){}, child: const Text('Cancelar')),
-          FilledButton(onPressed: (){}, child: const Text('Aceptar'))
+          TextButton(onPressed: ()=> context.pop(), child: const Text('Cancelar')),
+          FilledButton(onPressed: ()=>context.pop, child:  Text('Aceptar'))
         ],
       )
       );
