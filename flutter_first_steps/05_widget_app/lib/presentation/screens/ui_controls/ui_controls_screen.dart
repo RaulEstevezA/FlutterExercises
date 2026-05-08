@@ -23,6 +23,17 @@ class _UiControlsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView();
+    return ListView(
+      physics: const ClampingScrollPhysics(),
+      children: [
+        SwitchListTile(
+          title: const Text('Developer Mode'),
+          subtitle: const Text('Controles adicionales'),
+          value: true, 
+          onChanged: (value){
+
+        }) 
+      ],
+    );
   }
 }
