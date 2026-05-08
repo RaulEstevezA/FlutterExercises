@@ -18,6 +18,8 @@ class UiControlsScreen extends StatelessWidget {
   }
 }
 
+enum Transportation {car, plane, boat, submarine}
+
 class _UiControlsView extends StatefulWidget {
   const _UiControlsView();
 
@@ -28,6 +30,7 @@ class _UiControlsView extends StatefulWidget {
 class _UiControlsViewState extends State<_UiControlsView> {
 
   bool isDeveloper = true;
+  Transportation selectedTransportation = Transportation.car;
 
   @override
   Widget build(BuildContext context) {
@@ -42,6 +45,10 @@ class _UiControlsViewState extends State<_UiControlsView> {
             isDeveloper = !isDeveloper;
           }),
         ), 
+
+
+      RadioListTile(value: value)
+        
       ],
     );
   }
