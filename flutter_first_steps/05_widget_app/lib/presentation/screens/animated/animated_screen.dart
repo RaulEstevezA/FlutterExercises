@@ -23,9 +23,9 @@ class _AnimatedScreenState extends State<AnimatedScreen> {
     final random = Random();
 
     width = random.nextInt(300) + 50;
-    height = (random.nextDouble() * 500) + 50;
-    //color = random.
-    borderRadius = (random.nextDouble() * 50) + 10;
+    height = (random.nextDouble() * 600) + 50;
+    color = Color.fromRGBO(random.nextInt(255), random.nextInt(255), random.nextInt(255), 1);
+    borderRadius = (random.nextDouble() * 100) + 10;
 
     setState(() { });
 
