@@ -20,6 +20,10 @@ class _SideMenuState extends State<SideMenu> {
         });
       },
       children: [
+        Padding(
+          padding: const EdgeInsetsGeometry.fromLTRB(28, 20, 16, 10),
+          child: Text('Menu'),
+        ),
         NavigationDrawerDestination(icon: Icon(Icons.abc), label: const Text ('Home Screen')),
         NavigationDrawerDestination(icon: Icon(Icons.ac_unit), label: const Text ('Home Dos'))
       ]
