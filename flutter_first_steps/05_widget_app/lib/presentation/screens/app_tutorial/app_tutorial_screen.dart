@@ -28,15 +28,19 @@ class AppTutorialScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: PageView(
-        physics: const BouncingScrollPhysics(),
-        children: slides.map(
-          (slideData) => _Slide(
-            title: slideData.title,
-            caption: slideData.caption,
-            imageUrl: slideData.imageUrl,
-          )).toList()
-        ),
+      body: Stack(
+        children: [
+          PageView(
+            physics: const BouncingScrollPhysics(),
+            children: slides.map(
+              (slideData) => _Slide(
+                title: slideData.title,
+                caption: slideData.caption,
+                imageUrl: slideData.imageUrl,
+              )).toList()
+            ),
+        ],
+      ),
     );
   }
 }
