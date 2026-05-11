@@ -55,7 +55,11 @@ class _Slide extends StatelessWidget {
       child: Center(
         child: Column(
           children: [
-            Image(image: AssetImage(imageUrl))
+            Image(image: AssetImage(imageUrl)),
+            const SizedBox(height: 20), 
+            Text(title),
+            const SizedBox(height: 10),
+            Text(caption),
           ],
         ),
       ),
