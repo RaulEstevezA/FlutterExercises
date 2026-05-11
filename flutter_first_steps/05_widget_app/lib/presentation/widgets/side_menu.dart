@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:widget_app/config/menu/menu_items.dart';
 
 class SideMenu extends StatefulWidget {
@@ -20,9 +21,15 @@ class _SideMenuState extends State<SideMenu> {
     return NavigationDrawer(
       selectedIndex: navDraweIndex,
       onDestinationSelected: (valeu){
+
         setState(() {
           navDraweIndex = valeu;
         });
+
+        final menuItem = appMenuItems[valeu];
+
+        context.push(menuItem.link);
+
       },
       children: [
         Padding(
