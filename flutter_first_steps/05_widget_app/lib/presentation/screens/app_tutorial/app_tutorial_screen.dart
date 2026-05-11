@@ -19,11 +19,29 @@ final slides = <SlideInfo>[
 
 
 
-class AppTutorialScreen extends StatelessWidget {
+class AppTutorialScreen extends StatefulWidget {
 
   static const name = 'tutorial_screen';
 
   const AppTutorialScreen({super.key});
+
+  @override
+  State<AppTutorialScreen> createState() => _AppTutorialScreenState();
+}
+
+class _AppTutorialScreenState extends State<AppTutorialScreen> {
+  
+  late final PageController pageViewControllers = PageController();
+
+  @override
+  void initState() {
+    super.initState();
+
+    pageViewControllers.addListener(((){
+      print('${pageViewControllers.page}');
+    }));
+    
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +50,7 @@ class AppTutorialScreen extends StatelessWidget {
       body: Stack(
         children: [
           PageView(
+            controller: pageViewControllers,
             physics: const BouncingScrollPhysics(),
             children: slides.map(
               (slideData) => _Slide(
@@ -48,7 +67,15 @@ class AppTutorialScreen extends StatelessWidget {
               onPressed: () => context.pop(), 
               child: const Text('Salir')
             )
-          )
+          ),
+
+          Positioned(
+            bottom: 30,
+            right: 30,
+            child: FilledButton(
+              onPressed: () => context.pop(), 
+              child: const Text('Comenzar')) 
+          ),
         ],
       ),
     );
