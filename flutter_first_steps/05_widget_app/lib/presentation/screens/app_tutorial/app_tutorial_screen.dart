@@ -29,14 +29,12 @@ class AppTutorialScreen extends StatelessWidget {
       body: PageView(
         physics: const BouncingScrollPhysics(),
         children: slides.map(
-          (slideData => _Slide(
-            Title: slideData.title,
+          (slideData) => _Slide(
+            title: slideData.title,
             caption: slideData.caption,
             imageUrl: slideData.imageUrl,
-          ))
-        ) ,
-      ),
-
+          )).toList()
+        ),
     );
   }
 }
