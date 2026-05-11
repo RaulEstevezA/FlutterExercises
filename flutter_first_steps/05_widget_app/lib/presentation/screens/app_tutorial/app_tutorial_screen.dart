@@ -39,7 +39,13 @@ class _AppTutorialScreenState extends State<AppTutorialScreen> {
     super.initState();
 
     pageViewControllers.addListener(((){
-      print('${pageViewControllers.page}');
+
+      final page = pageViewControllers.page ?? 0;
+      if ( !endReached && page >= (slides.length - 1.5)){
+        setState(() {
+          endReached = true;
+        });
+      }
     }));
     
   }
@@ -78,7 +84,7 @@ class _AppTutorialScreenState extends State<AppTutorialScreen> {
                 onPressed: () => context.pop(), 
                 child: const Text('Comenzar')) 
             ) : const SizedBox(),
-            
+
         ],
       ),
     );
