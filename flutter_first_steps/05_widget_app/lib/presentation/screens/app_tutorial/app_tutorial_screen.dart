@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class SlideInfo {
   final String title;
@@ -39,6 +40,13 @@ class AppTutorialScreen extends StatelessWidget {
                 imageUrl: slideData.imageUrl,
               )).toList()
             ),
+
+          Positioned(
+            right: 20,
+            top: 50,
+            child: TextButton(
+              onPressed: () => context.pop(), 
+              child: const Text('Salir')))
         ],
       ),
     );
