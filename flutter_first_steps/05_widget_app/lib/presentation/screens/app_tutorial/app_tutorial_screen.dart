@@ -50,6 +50,15 @@ class _Slide extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Placeholder();
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 30),
+      child: Center(
+        child: Column(
+          children: [
+            Image(image: AssetImage(imageUrl))
+          ],
+        ),
+      ),
+    );
   }
 }
