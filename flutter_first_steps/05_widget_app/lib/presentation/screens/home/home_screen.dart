@@ -6,6 +6,7 @@ import 'package:widget_app/presentation/widgets/side_menu.dart';
 
 
 class HomeScreen extends StatelessWidget {
+  
 
 static const String name = 'home_screen';
 
@@ -13,7 +14,11 @@ static const String name = 'home_screen';
 
   @override
   Widget build(BuildContext context) {
+
+    final scaffoldKey = GlobalKey<ScaffoldState>();
+
     return Scaffold(
+      key: scaffoldKey,
       appBar: AppBar(
         title: const Text('Flutter + Material 3'),
 
