@@ -30,11 +30,31 @@ class _SideMenuState extends State<SideMenu> {
           child: Text('Menu'),
         ),
 
-        ...appMenuItems.map((item) => NavigationDrawerDestination(
+        ...appMenuItems
+        .sublist(0,3)
+        .map((item) => NavigationDrawerDestination(
           icon: Icon(item.icon), 
           label: Text(item.title)
           ),
-        )
+        ),
+
+        const Padding(padding: EdgeInsetsGeometry.fromLTRB(28, 10, 28, 10), 
+          child: Divider(),
+        ),
+
+        const Padding(
+          padding: EdgeInsetsGeometry.fromLTRB(28, 10, 16, 10),
+          child: Text('More options'),
+        ),
+
+        ...appMenuItems
+        .sublist(3)
+        .map((item) => NavigationDrawerDestination(
+          icon: Icon(item.icon), 
+          label: Text(item.title)
+          ),
+        ),
+
       ]
     );
   }
