@@ -27,7 +27,7 @@ class AppTutorialScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
+      backgroundColor: Colors.white,
       body: PageView(
         physics: const BouncingScrollPhysics(),
         children: slides.map(
