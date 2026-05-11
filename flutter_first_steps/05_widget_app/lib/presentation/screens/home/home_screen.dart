@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:widget_app/config/menu/menu_items.dart';
+import 'package:widget_app/presentation/widgets/side_menu.dart';
 // import 'package:widget_app/presentation/screens/screens.dart';
 
 
@@ -18,7 +19,7 @@ static const String name = 'home_screen';
 
       ),
       body: _HomeView(),
-      drawer: Placeholder(),
+      drawer: const SideMenu(),
 
     );
   }
