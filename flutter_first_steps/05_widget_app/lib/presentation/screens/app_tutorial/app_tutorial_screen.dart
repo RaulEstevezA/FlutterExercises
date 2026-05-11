@@ -28,11 +28,30 @@ class AppTutorialScreen extends StatelessWidget {
 
       body: PageView(
         physics: const BouncingScrollPhysics(),
-        children: [
-          
-        ],
+        children: slides.map(
+          (slideData => _Slide(
+            Title: slideData.title,
+            caption: slideData.caption,
+            imageUrl: slideData.imageUrl,
+          ))
+        ) ,
       ),
 
     );
+  }
+}
+
+
+class _Slide extends StatelessWidget {
+
+  final String title;
+  final String caption;
+  final String imageUrl;
+
+  const _Slide({required this.title, required this.caption, required this.imageUrl});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }
