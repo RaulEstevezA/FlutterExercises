@@ -50,10 +50,15 @@ class _Slide extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30),
       child: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Image(image: AssetImage(imageUrl)),
             const SizedBox(height: 20), 
