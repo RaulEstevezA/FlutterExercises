@@ -18,6 +18,7 @@ static const String name = 'home_screen';
 
       ),
       body: _HomeView(),
+      drawer: Placeholder(),
 
     );
   }
