@@ -51,6 +51,12 @@ class _AppTutorialScreenState extends State<AppTutorialScreen> {
   }
 
   @override
+  void dispose() {
+    pageViewControllers.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
