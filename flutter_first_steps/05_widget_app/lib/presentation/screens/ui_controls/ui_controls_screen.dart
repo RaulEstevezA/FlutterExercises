@@ -8,9 +8,7 @@ class UiControlsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Ui Controls'),
-      ),
+      appBar: AppBar(title: const Text('Ui Controls')),
       body: const _UiControlsView(),
     );
   }
@@ -28,6 +26,9 @@ class _UiControlsView extends StatefulWidget {
 class _UiControlsViewState extends State<_UiControlsView> {
   bool isDeveloper = true;
   Transportation selectedTransportation = Transportation.car;
+  bool wantsBreakfast = false;
+  bool wantsLunch = false;
+  bool wantsDinner = false;
 
   @override
   Widget build(BuildContext context) {
@@ -49,12 +50,12 @@ class _UiControlsViewState extends State<_UiControlsView> {
 
           children: [
             RadioGroup<Transportation>(
-            groupValue: selectedTransportation,
-            onChanged: (value) {
-              if (value == null) return;
+              groupValue: selectedTransportation,
+              onChanged: (value) {
+                if (value == null) return;
 
-              setState(() {
-                selectedTransportation = value;
+                setState(() {
+                  selectedTransportation = value;
                 });
               },
               child: const Column(
@@ -83,6 +84,30 @@ class _UiControlsViewState extends State<_UiControlsView> {
               ),
             ),
           ],
+        ),
+        
+        CheckboxListTile(
+          title: const Text('¿Desayuno?'),
+          value: wantsBreakfast, 
+          onChanged: (value) => setState(() {
+            wantsBreakfast = !wantsBreakfast;
+          }),
+        ),
+
+        CheckboxListTile(
+          title: const Text('¿Comida?'),
+          value: wantsLunch, 
+          onChanged: (value) => setState(() {
+            wantsLunch = !wantsLunch;
+          }),
+        ),
+
+        CheckboxListTile(
+          title: const Text('Cena?'),
+          value: wantsDinner, 
+          onChanged: (value) => setState(() {
+            wantsDinner = !wantsDinner;
+          }),
         ),
       ],
     );
