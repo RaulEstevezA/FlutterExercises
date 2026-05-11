@@ -32,6 +32,7 @@ class AppTutorialScreen extends StatefulWidget {
 class _AppTutorialScreenState extends State<AppTutorialScreen> {
   
   late final PageController pageViewControllers = PageController();
+  bool endReached = false;
 
   @override
   void initState() {
@@ -69,13 +70,15 @@ class _AppTutorialScreenState extends State<AppTutorialScreen> {
             )
           ),
 
-          Positioned(
-            bottom: 30,
-            right: 30,
-            child: FilledButton(
-              onPressed: () => context.pop(), 
-              child: const Text('Comenzar')) 
-          ),
+          endReached ?
+            Positioned(
+              bottom: 30,
+              right: 30,
+              child: FilledButton(
+                onPressed: () => context.pop(), 
+                child: const Text('Comenzar')) 
+            ) : const SizedBox(),
+            
         ],
       ),
     );
