@@ -46,7 +46,9 @@ class AppTutorialScreen extends StatelessWidget {
             top: 50,
             child: TextButton(
               onPressed: () => context.pop(), 
-              child: const Text('Salir')))
+              child: const Text('Salir')
+            )
+          )
         ],
       ),
     );
