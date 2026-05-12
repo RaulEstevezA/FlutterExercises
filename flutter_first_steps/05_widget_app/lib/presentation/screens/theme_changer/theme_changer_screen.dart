@@ -25,6 +25,17 @@ class ThemeChangerScreen extends ConsumerWidget {
           )
         ],
       ),
+
+      body: _ThemeChangerView(),
     );
+  }
+}
+
+class _ThemeChangerView extends StatelessWidget {
+  const _ThemeChangerView();
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox();
   }
 }
