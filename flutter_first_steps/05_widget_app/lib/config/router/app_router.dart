@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:widget_app/presentation/screens/counter/counter_screen.dart';
 import 'package:widget_app/presentation/screens/screens.dart';
 
 
@@ -61,6 +62,13 @@ final appRouter = GoRouter(
       path: "/tutorial",
       name: AppTutorialScreen.name,
       builder: (context, state) => const AppTutorialScreen(),
+
+    ),
+
+    GoRoute(
+      path: "/counter_screen",
+      name: CounterScreen.name,
+      builder: (context, state) => const CounterScreen(),
 
     ),
   ],
