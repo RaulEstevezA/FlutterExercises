@@ -49,10 +49,11 @@ class _InfiniteScrollScreenState extends State<InfiniteScrollScreen> {
     addFiveImages();
     isLoading = false;
 
-    // todo: revisar si esta cargado
     if (!isMounted) return;
 
     setState(() {});
+
+    // Todo mover Scroll
 
   }
   
@@ -89,7 +90,7 @@ class _InfiniteScrollScreenState extends State<InfiniteScrollScreen> {
 
       floatingActionButton: FloatingActionButton(
         onPressed: () => context.pop(),
-        child: const Icon(Icons.arrow_back_ios_new_outlined),
+        child: isLoading ? CircularProgressIndicator() : Icon(Icons.arrow_back_ios_new_outlined)
         ),
     );
   }
