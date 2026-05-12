@@ -16,6 +16,10 @@ class CounterScreen extends StatelessWidget {
         child: 
         Text('Valor: '),
       ),
+
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){},
+      )
     );
   }
 }
