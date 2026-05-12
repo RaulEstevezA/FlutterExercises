@@ -26,10 +26,10 @@ class CounterScreen extends ConsumerWidget {
         child: Icon(Icons.add),
         onPressed: (){
           // una de las formas de hacerlo
-          // ref.read(counterProvider.notifier).state++;
+          ref.read(counterProvider.notifier).state++;
 
           // otra forma de hacerlo, sumando una cantidad asignada
-          ref.read(counterProvider.notifier).update((state) => state + 1);
+          // ref.read(counterProvider.notifier).update((state) => state + 1);
         
         },
       )
