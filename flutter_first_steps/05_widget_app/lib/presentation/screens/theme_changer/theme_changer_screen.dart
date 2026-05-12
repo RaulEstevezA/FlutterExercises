@@ -38,22 +38,23 @@ class _ThemeChangerView extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
 
     final List<Color> colors = ref.watch(colorListProvider);
+    final int indexColor = ref.watch(selectedColorProvider);
 
     return ListView.builder(
       itemCount: colors.length,
       itemBuilder: (context, index) {
         final Color color = colors[index];
-        
+
         return RadioListTile(
           title: Text('Este color', style: TextStyle(color : color)),
           subtitle: Text('${color.value}'),
           activeColor: color,
           value: index,
-          groupValue: 0,
+          groupValue: indexColor,
           onChanged: (value){
-            // todo el cambio
+            ref.read(selectedColorProvider.notifier).update((state) => index);
           },
-          );
+        );
       },
     );
   }
