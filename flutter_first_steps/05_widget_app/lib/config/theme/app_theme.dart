@@ -6,8 +6,14 @@ const colorList = <Color>[
   Colors.teal,
   Colors.green,
   Colors.red,
+  Colors.purple,
   Colors.deepPurple,
   Colors.orange,
+  Colors.pink,
+  Colors.pinkAccent,
+  Colors.yellow,
+  Colors.yellowAccent,
+  Colors.cyanAccent,
 ];
 
 
