@@ -14,7 +14,31 @@ class InfiniteScrollScreen extends StatefulWidget {
 class _InfiniteScrollScreenState extends State<InfiniteScrollScreen> {
 
   List<int> imagesIds = [237,219,218,244,200];
+  final ScrollController scrollController = ScrollController();
 
+  @override
+  void initState() {
+    super.initState();
+    
+    scrollController.addListener((){
+      if ((scrollController.position.pixels + 500) >= scrollController.position.maxScrollExtent ){
+
+      }
+    });
+
+  }
+
+  @override
+  void dispose() {
+    scrollController.dispose();
+    super.dispose();
+  }
+
+  
+  Future loadNextPage() async {
+
+  }
+  
   void addFiveImages(){
     final lastId = imagesIds.last;
 
@@ -32,6 +56,7 @@ class _InfiniteScrollScreenState extends State<InfiniteScrollScreen> {
         removeTop: true,
         removeBottom: true,
         child: ListView.builder(
+          controller: scrollController,
           itemCount: imagesIds.length,
           itemBuilder: (context, index){
             return FadeInImage(
