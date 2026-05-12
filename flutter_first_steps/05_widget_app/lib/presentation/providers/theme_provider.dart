@@ -9,3 +9,14 @@ final isDarkMode = StateProvider<bool>((ref) => false);
 final colorListProvider = Provider((ref) => colorList);
 
 final selectedColorProvider = StateProvider<int>((ref) => 0);
+
+// un objeto de tipo AppTheme (custom)
+final themeNotifierProvider = StateNotifierProvider((ref) => null);
+
+// controller o notifier
+class ThemeNotifier extends StateNotifier<AppTheme> {
+
+  // STATE = Estado = new AppTheme();
+  ThemeNotifier(): super(AppTheme());
+  
+}
