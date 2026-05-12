@@ -14,7 +14,7 @@ class CounterScreen extends StatelessWidget {
       
       body: Center(
         child: 
-        Text('Valor: '),
+        Text('Valor: 10', style: Theme.of(context).textTheme.titleLarge,),
       ),
 
       floatingActionButton: FloatingActionButton(
