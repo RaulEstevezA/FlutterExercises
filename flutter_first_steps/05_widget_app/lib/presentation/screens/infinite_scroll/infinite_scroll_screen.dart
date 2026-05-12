@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class InfiniteScrollScreen extends StatefulWidget {
 
@@ -34,6 +35,10 @@ class _InfiniteScrollScreenState extends State<InfiniteScrollScreen> {
         }
       ),
 
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => context.pop(),
+        child: const Icon(Icons.arrow_back_ios_new_outlined),
+        ),
     );
   }
 }
