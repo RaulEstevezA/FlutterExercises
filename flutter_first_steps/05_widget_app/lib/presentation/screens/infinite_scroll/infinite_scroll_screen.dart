@@ -15,6 +15,14 @@ class _InfiniteScrollScreenState extends State<InfiniteScrollScreen> {
 
   List<int> imagesIds = [237,219,218,244,200];
 
+  void addFiveImages(){
+    final lastId = imagesIds.last;
+
+    imagesIds.addAll(
+      [237,219,218,244,200].map((e) => lastId + e)
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
