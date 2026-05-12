@@ -31,11 +31,28 @@ class ThemeChangerScreen extends ConsumerWidget {
   }
 }
 
-class _ThemeChangerView extends StatelessWidget {
+class _ThemeChangerView extends ConsumerWidget {
   const _ThemeChangerView();
 
   @override
-  Widget build(BuildContext context) {
-    return SizedBox();
+  Widget build(BuildContext context, WidgetRef ref) {
+
+    final List<Color> colors = ref.watch(colorListProvider);
+
+    return ListView.builder(
+      itemCount: colors.length,
+      itemBuilder: (context, index) {
+        final Color color = colors[index];
+        return RadioListTile(
+          title: Text('Este color', style: TextStyle(color : color)),
+          subtitle: Text('${color.value}'),
+          value: index,
+          groupValue: 0,
+          onChanged: (value){
+            // todo el cambio
+          },
+          );
+      },
+    );
   }
 }
