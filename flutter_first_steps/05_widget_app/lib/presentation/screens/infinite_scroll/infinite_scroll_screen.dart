@@ -33,6 +33,7 @@ class _InfiniteScrollScreenState extends State<InfiniteScrollScreen> {
           );
         }
       ),
+
     );
   }
 }
