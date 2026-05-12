@@ -4,6 +4,12 @@ Aplicacion de practica creada con Flutter para probar muchos de los widgets, pat
 
 El objetivo principal no es construir una app de produccion, sino tener un laboratorio ordenado para aprender como se comportan diferentes piezas de Flutter y Material 3.
 
+## Demo
+
+<p align="center">
+  <video src="demo.mp4" controls width="320"></video>
+</p>
+
 ## Tecnologias usadas
 
 - Flutter con Material 3.

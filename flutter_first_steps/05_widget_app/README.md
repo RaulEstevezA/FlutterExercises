@@ -4,6 +4,12 @@ A Flutter practice application created to explore many of the widgets, patterns,
 
 The main goal of this project is not to build a production application, but to provide an organized learning playground for understanding how Flutter and Material 3 pieces behave.
 
+## Demo
+
+<p align="center">
+  <video src="demo.mp4" controls width="320"></video>
+</p>
+
 ## Technologies
 
 - Flutter with Material 3.
