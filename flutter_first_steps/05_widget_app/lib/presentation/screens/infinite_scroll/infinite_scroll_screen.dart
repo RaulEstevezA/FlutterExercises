@@ -16,6 +16,7 @@ class _InfiniteScrollScreenState extends State<InfiniteScrollScreen> {
   List<int> imagesIds = [1,2,3,4,5];
   final ScrollController scrollController = ScrollController();
   bool isLoading = false;
+  bool isMounted = true;
 
   @override
   void initState() {
@@ -33,6 +34,7 @@ class _InfiniteScrollScreenState extends State<InfiniteScrollScreen> {
   @override
   void dispose() {
     scrollController.dispose();
+    isMounted = false;
     super.dispose();
   }
 
@@ -48,6 +50,7 @@ class _InfiniteScrollScreenState extends State<InfiniteScrollScreen> {
     isLoading = false;
 
     // todo: revisar si esta cargado
+    if (!isMounted) return;
 
     setState(() {});
 
