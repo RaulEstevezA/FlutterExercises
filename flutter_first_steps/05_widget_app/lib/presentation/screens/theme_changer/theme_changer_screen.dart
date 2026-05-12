@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:widget_app/config/theme/app_theme.dart';
 import 'package:widget_app/presentation/providers/theme_provider.dart';
 
 class ThemeChangerScreen extends ConsumerWidget {
@@ -39,8 +40,10 @@ class _ThemeChangerView extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
 
     final List<Color> colors = ref.watch(colorListProvider);
-    final int indexColor = ref.watch(selectedColorProvider);
-    final bool isDark = ref.watch(isDarkModeProvider);
+    final int selectedColor = ref.watch(themeNotifierProvider).selectedColor;
+
+    // final int indexColor = ref.watch(selectedColorProvider);
+
 
     return ListView.builder(
       itemCount: colors.length,
@@ -52,9 +55,10 @@ class _ThemeChangerView extends ConsumerWidget {
           subtitle: Text('${color.value}'),
           activeColor: color,
           value: index,
-          groupValue: indexColor,
+          groupValue: selectedColor,
           onChanged: (value){
-            ref.read(selectedColorProvider.notifier).update((state) => index);
+            // ref.read(selectedColorProvider.notifier).update((state) => index);
+            ref.watch(themeNotifierProvider.notifier).changeColorIndex(index);
           },
         );
       },
