@@ -18,6 +18,7 @@ class CounterScreen extends StatelessWidget {
       ),
 
       floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
         onPressed: (){},
       )
     );
