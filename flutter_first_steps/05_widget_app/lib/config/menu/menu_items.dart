@@ -71,8 +71,8 @@ const appMenuItems = <MenuItems>[
   ),
 
   MenuItems(
-    title: 'Introcducción a la aplicacción',
-    subTitle: 'Pequeño tutorial introductorio',
+    title: 'Contador',
+    subTitle: 'Contador de clics',
     link: '/counter_screen',
     icon: Icons.add,
   ),
