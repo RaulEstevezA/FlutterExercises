@@ -70,6 +70,13 @@ const appMenuItems = <MenuItems>[
     icon: Icons.accessibility_rounded,
   ),
 
+  MenuItems(
+    title: 'Introcducción a la aplicacción',
+    subTitle: 'Pequeño tutorial introductorio',
+    link: '/counter_screen',
+    icon: Icons.add,
+  ),
+
 ];
 
 
