@@ -13,8 +13,9 @@ class InfiniteScrollScreen extends StatefulWidget {
 
 class _InfiniteScrollScreenState extends State<InfiniteScrollScreen> {
 
-  List<int> imagesIds = [237,219,218,244,200];
+  List<int> imagesIds = [1,2,3,4,5];
   final ScrollController scrollController = ScrollController();
+  bool isLoading = false;
 
   @override
   void initState() {
@@ -22,6 +23,7 @@ class _InfiniteScrollScreenState extends State<InfiniteScrollScreen> {
     
     scrollController.addListener((){
       if ((scrollController.position.pixels + 500) >= scrollController.position.maxScrollExtent ){
+        loadNextPage();
 
       }
     });
@@ -36,6 +38,18 @@ class _InfiniteScrollScreenState extends State<InfiniteScrollScreen> {
 
   
   Future loadNextPage() async {
+    if (isLoading) return;
+    isLoading = true;
+    setState(() {});
+
+    await Future.delayed(const Duration(seconds: 2));
+
+    addFiveImages();
+    isLoading = false;
+
+    // todo: revisar si esta cargado
+
+    setState(() {});
 
   }
   
@@ -43,7 +57,7 @@ class _InfiniteScrollScreenState extends State<InfiniteScrollScreen> {
     final lastId = imagesIds.last;
 
     imagesIds.addAll(
-      [237,219,218,244,200].map((e) => lastId + e)
+      [1,2,3,4,5].map((e) => lastId + e)
     );
   }
 
