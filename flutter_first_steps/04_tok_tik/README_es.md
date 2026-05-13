@@ -19,9 +19,11 @@ Este proyecto está enfocado en entender la reproducción de video, el uso de as
 ## Demo
 
 <p align="center">
-  <a href="https://raw.githubusercontent.com/RaulEstevezA/FlutterExercises/main/flutter_first_steps/04_tok_tik/demo.mp4">
-    <img src="demo.png" alt="Vista previa de la demo de Tok Tik" width="320">
-  </a>
+  <img src="demo.png" alt="Vista previa de la demo de Tok Tik" width="320">
+</p>
+
+<p align="center">
+  <a href="https://youtube.com/shorts/uWSulcyuzrI">Enlace al video demo</a>
 </p>
 
 ## Conceptos clave

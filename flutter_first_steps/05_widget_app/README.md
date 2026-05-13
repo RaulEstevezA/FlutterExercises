@@ -7,9 +7,11 @@ The main goal of this project is not to build a production application, but to p
 ## Demo
 
 <p align="center">
-  <a href="https://raw.githubusercontent.com/RaulEstevezA/FlutterExercises/main/flutter_first_steps/05_widget_app/demo.mp4">
-    <img src="demo.png" alt="Widget App demo preview" width="320">
-  </a>
+  <img src="demo.png" alt="Widget App demo preview" width="320">
+</p>
+
+<p align="center">
+  <a href="https://youtube.com/shorts/XdzN50YQtlU">Demo video link</a>
 </p>
 
 ## Technologies

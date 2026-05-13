@@ -19,9 +19,11 @@ This project is focused on understanding video playback, local assets, state man
 ## Demo
 
 <p align="center">
-  <a href="https://raw.githubusercontent.com/RaulEstevezA/FlutterExercises/main/flutter_first_steps/04_tok_tik/demo.mp4">
-    <img src="demo.png" alt="Tok Tik demo preview" width="320">
-  </a>
+  <img src="demo.png" alt="Tok Tik demo preview" width="320">
+</p>
+
+<p align="center">
+  <a href="https://youtube.com/shorts/uWSulcyuzrI">Demo video link</a>
 </p>
 
 ## Key Concepts
