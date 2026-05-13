@@ -19,13 +19,9 @@ This project is focused on understanding video playback, local assets, state man
 ## Demo
 
 <p align="center">
-  <video src="demo.mp4" controls width="320"></video>
-</p>
-
-## Screenshot
-
-<p align="center">
-  <img src="toktik.png" width="150">
+  <a href="demo.mp4">
+    <img src="demo.png" alt="Tok Tik demo preview" width="320">
+  </a>
 </p>
 
 ## Key Concepts

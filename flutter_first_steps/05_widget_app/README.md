@@ -7,7 +7,9 @@ The main goal of this project is not to build a production application, but to p
 ## Demo
 
 <p align="center">
-  <video src="demo.mp4" controls width="320"></video>
+  <a href="demo.mp4">
+    <img src="demo.png" alt="Widget App demo preview" width="320">
+  </a>
 </p>
 
 ## Technologies

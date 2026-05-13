@@ -7,7 +7,9 @@ El objetivo principal no es construir una app de produccion, sino tener un labor
 ## Demo
 
 <p align="center">
-  <video src="demo.mp4" controls width="320"></video>
+  <a href="demo.mp4">
+    <img src="demo.png" alt="Vista previa de la demo de Widget App" width="320">
+  </a>
 </p>
 
 ## Tecnologias usadas

@@ -19,13 +19,9 @@ Este proyecto está enfocado en entender la reproducción de video, el uso de as
 ## Demo
 
 <p align="center">
-  <video src="demo.mp4" controls width="320"></video>
-</p>
-
-## Captura
-
-<p align="center">
-  <img src="toktik.png" width="150">
+  <a href="demo.mp4">
+    <img src="demo.png" alt="Vista previa de la demo de Tok Tik" width="320">
+  </a>
 </p>
 
 ## Conceptos clave
