@@ -7,7 +7,7 @@ El objetivo principal no es construir una app de produccion, sino tener un labor
 ## Demo
 
 <p align="center">
-  <a href="demo.mp4">
+  <a href="https://raw.githubusercontent.com/RaulEstevezA/FlutterExercises/main/flutter_first_steps/05_widget_app/demo.mp4">
     <img src="demo.png" alt="Vista previa de la demo de Widget App" width="320">
   </a>
 </p>
