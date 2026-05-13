@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:maybe_app/domain/entities/message.dart';
-import 'package:maybe_app/infrastructure/models/yes_no_model.dart';
 
 class HerMessageBubble extends StatelessWidget {
   const HerMessageBubble({super.key, required this.message});
