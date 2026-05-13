@@ -59,4 +59,6 @@ The focus is on understanding core programming concepts that will later be appli
 
 This repository reflects my progression in Dart as a foundation for becoming a mobile developer.
 
-[Come back](../README.md)
+## Navigation
+
+- [Back to the repository overview](../README_en.md)

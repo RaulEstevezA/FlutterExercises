@@ -29,3 +29,6 @@ This project marks the transition from learning Dart fundamentals to starting Fl
 
 The focus is on understanding how Flutter applications are structured and how widgets are used to build interfaces.
 
+## Navigation
+
+- [Back to the repository overview](../../README_en.md)

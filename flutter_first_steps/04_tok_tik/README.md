@@ -16,6 +16,12 @@ Each post includes:
 
 This project is focused on understanding video playback, local assets, state management, repository/data source separation, model mapping, entity usage, and full-screen UI composition in Flutter.
 
+## Demo
+
+<p align="center">
+  <video src="demo.mp4" controls width="320"></video>
+</p>
+
 ## Screenshot
 
 <p align="center">
@@ -78,3 +84,7 @@ This keeps the presentation layer independent from the concrete data source. If 
 This project builds upon previous Flutter exercises by introducing a more visual and media-focused application.
 
 The focus is on connecting local data with the presentation layer through domain contracts, managing application state with Provider, reproducing local videos, and building a mobile-first full-screen experience similar to modern short-video apps.
+
+## Navigation
+
+- [Back to the repository overview](../../README_en.md)

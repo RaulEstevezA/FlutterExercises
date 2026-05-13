@@ -59,4 +59,6 @@ El enfoque está en comprender los conceptos fundamentales de programación que 
 
 Este repositorio refleja mi progreso en Dart como base para convertirme en desarrollador de aplicaciones móviles.
 
-[Volver atrás](../README.md)
+## Navegación
+
+- [Volver a la descripción general del repositorio](../README_es.md)

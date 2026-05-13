@@ -42,3 +42,6 @@ Este proyecto amplía los conceptos básicos de Flutter introduciendo widgets co
 
 El enfoque está en entender cómo las interacciones del usuario afectan a la interfaz y cómo se gestiona el estado dentro de la aplicación.
 
+## Navegación
+
+- [Volver a la descripción general del repositorio](../../README_es.md)

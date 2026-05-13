@@ -55,3 +55,6 @@ This project builds upon previous Flutter exercises by introducing a more comple
 
 The focus is on connecting the UI with application state, consuming an external service, and transforming API data into usable entities for the presentation layer.
 
+## Navigation
+
+- [Back to the repository overview](../../README_en.md)

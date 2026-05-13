@@ -662,3 +662,7 @@ flutter test
 `Widget App` es una aplicacion de aprendizaje para recorrer gran parte del ecosistema basico de Flutter: widgets visuales, navegacion, estado, temas, animaciones, scroll, dialogos, controles de entrada y carga de imagenes.
 
 La idea mas importante del proyecto es que cada pantalla funciona como un ejemplo aislado. Esto permite entrar a una seccion, estudiar un concepto concreto y volver al menu principal para probar el siguiente.
+
+## Navegación
+
+- [Volver a la descripción general del repositorio](../../README_es.md)

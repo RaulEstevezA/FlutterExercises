@@ -16,6 +16,12 @@ Cada publicación incluye:
 
 Este proyecto está enfocado en entender la reproducción de video, el uso de assets locales, la gestión de estado, la separación entre repositorios y fuentes de datos, el mapeo de modelos, el uso de entidades y la composición de interfaces de pantalla completa en Flutter.
 
+## Demo
+
+<p align="center">
+  <video src="demo.mp4" controls width="320"></video>
+</p>
+
 ## Captura
 
 <p align="center">
@@ -78,3 +84,7 @@ Esto mantiene la capa de presentación independiente de la fuente de datos concr
 Este proyecto amplía ejercicios anteriores de Flutter introduciendo una aplicación más visual y centrada en contenido multimedia.
 
 El objetivo es conectar datos locales con la capa de presentación mediante contratos de dominio, gestionar el estado con Provider, reproducir videos locales y construir una experiencia móvil de pantalla completa similar a las aplicaciones modernas de videos cortos.
+
+## Navegación
+
+- [Volver a la descripción general del repositorio](../../README_es.md)

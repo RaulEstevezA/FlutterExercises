@@ -42,3 +42,6 @@ This project builds upon the basics of Flutter by introducing stateful widgets a
 
 The focus is on understanding how user interactions affect the UI and how to control application state.
 
+## Navigation
+
+- [Back to the repository overview](../../README_en.md)

@@ -55,3 +55,6 @@ Este proyecto amplía ejercicios anteriores de Flutter introduciendo una estruct
 
 El objetivo es conectar la interfaz con el estado de la aplicación, consumir un servicio externo y transformar los datos de una API en entidades utilizables por la capa de presentación.
 
+## Navegación
+
+- [Volver a la descripción general del repositorio](../../README_es.md)
