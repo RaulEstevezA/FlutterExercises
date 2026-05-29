@@ -1,0 +1,32 @@
+# Marcar directorios generados/build como linguist-vendored
+# para que GitHub no los cuente en las estadísticas de lenguaje
+
+# Archivos CMake y configuración de plataformas nativas (no contar como parte del proyecto)
+CMakeLists.txt linguist-vendored
+*.cmake linguist-vendored
+
+# Configuración de Android (generada automáticamente)
+android/ linguist-vendored
+
+# Configuración de iOS (generada automáticamente)
+ios/ linguist-vendored
+
+# Configuración de Windows (generada automáticamente)
+windows/ linguist-vendored
+
+# Configuración de Linux (generada automáticamente)
+linux/ linguist-vendored
+
+# Configuración de macOS (generada automáticamente)
+macos/ linguist-vendored
+
+# Web (configuración generada automáticamente)
+web/ linguist-vendored
+
+# Archivos Kotlin/Gradle (Android)
+*.kt linguist-vendored
+*.gradle linguist-vendored
+gradle.properties linguist-vendored
+
+# Asegurar que los archivos Dart sean contados
+*.dart linguist-language=Dart
