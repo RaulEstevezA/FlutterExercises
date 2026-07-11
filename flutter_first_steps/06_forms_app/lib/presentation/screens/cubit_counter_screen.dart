@@ -1,7 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:forms_app/presentation/blocs/counter_cubit/counter_cubit.dart';
 
 class CubirCounterScreen extends StatelessWidget {
   const CubirCounterScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (_) => CounterCubit(),
+      child: _CubitCounterView(),
+    );
+  }
+}
+
+class _CubitCounterView extends StatelessWidget {
+  const _CubitCounterView();
 
   @override
   Widget build(BuildContext context) {
@@ -10,13 +24,12 @@ class CubirCounterScreen extends StatelessWidget {
         title: const Text('Cubit Counter'),
         actions: [
           IconButton(
-            onPressed: () => {}, 
-            icon: const Icon(Icons.refresh_outlined))
+            onPressed: () => {},
+            icon: const Icon(Icons.refresh_outlined),
+          ),
         ],
       ),
-      body: const Center(
-        child: Text('Counter value: xxx'),
-      ),
+      body: const Center(child: Text('Counter value: xxx')),
 
       floatingActionButton: Column(
         mainAxisAlignment: MainAxisAlignment.end,
@@ -24,7 +37,7 @@ class CubirCounterScreen extends StatelessWidget {
           FloatingActionButton(
             heroTag: '1',
             child: const Text('+3'),
-            onPressed: () => {}
+            onPressed: () => {},
           ),
 
           const SizedBox(height: 15),
@@ -32,7 +45,7 @@ class CubirCounterScreen extends StatelessWidget {
           FloatingActionButton(
             heroTag: '2',
             child: const Text('+2'),
-            onPressed: () => {}
+            onPressed: () => {},
           ),
 
           const SizedBox(height: 15),
@@ -40,8 +53,8 @@ class CubirCounterScreen extends StatelessWidget {
           FloatingActionButton(
             heroTag: '3',
             child: const Text('+1'),
-            onPressed: () => {}
-          )
+            onPressed: () => {},
+          ),
         ],
       ),
     );
