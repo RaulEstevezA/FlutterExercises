@@ -52,9 +52,7 @@ final counterState = context.watch<CounterCubit>().state;
           FloatingActionButton(
             heroTag: '1',
             child: const Text('+3'),
-            onPressed: () {
-              context.read<CounterCubit>().intcreaseBy(3);
-            },
+            onPressed: () => increaseCounterBy(context, 3)
           ),
 
           const SizedBox(height: 15),
@@ -62,9 +60,7 @@ final counterState = context.watch<CounterCubit>().state;
           FloatingActionButton(
             heroTag: '2',
             child: const Text('+2'),
-            onPressed: (){
-              context.read<CounterCubit>().intcreaseBy(2);
-            },
+            onPressed: () => increaseCounterBy(context, 2)
           ),
 
           const SizedBox(height: 15),
@@ -72,9 +68,7 @@ final counterState = context.watch<CounterCubit>().state;
           FloatingActionButton(
             heroTag: '3',
             child: const Text('+1'),
-            onPressed: (){
-              context.read<CounterCubit>().intcreaseBy(3);;
-            },
+            onPressed: () => increaseCounterBy(context, 1),
           ),
         ],
       ),
