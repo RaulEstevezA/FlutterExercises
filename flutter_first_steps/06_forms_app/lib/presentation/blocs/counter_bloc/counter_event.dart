@@ -6,3 +6,11 @@ sealed class CounterEvent extends Equatable {
   @override
   List<Object> get props => [];
 }
+
+
+class CounterIncresed extends CounterEvent {
+  final int value;
+
+  const CounterIncresed({required this.value});
+
+}
