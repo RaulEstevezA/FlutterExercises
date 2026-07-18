@@ -6,7 +6,7 @@ class CounterState extends Equatable {
   final int transactionCount;
 
   const CounterState({
-    this.counter = 10, 
+    this.counter = 0, 
     this.transactionCount = 0
     });
 
