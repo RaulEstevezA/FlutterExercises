@@ -28,16 +28,9 @@ class CustomTextFormField extends StatelessWidget {
     );
 
     return TextFormField(
-      onChanged: (value) {
-        print('value $value');
-      },
+      onChanged: onChanged,
 
-      validator: (value) {
-        if (value == null) return 'Campo requerio';
-        if (value.trim().isEmpty) return 'Campo requerio';
-
-        return null;
-      },
+      validator: validator,
 
       decoration: InputDecoration(
         enabledBorder: border,
@@ -46,9 +39,9 @@ class CustomTextFormField extends StatelessWidget {
         focusedErrorBorder: border.copyWith(borderSide: BorderSide(color: Colors.red)),
 
         isDense: true,
-        label: Text('Cualquier cosa'),
-        hintText: 'Este es el hintText',
-        errorText: 'Este es el errorText',
+        label: label != null ? Text(label!) : null,
+        hintText: hint,
+        errorText: errorMessage,
         focusColor: colors.primary,
       ),
     );
