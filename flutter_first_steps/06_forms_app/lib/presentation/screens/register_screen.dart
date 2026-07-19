@@ -49,9 +49,17 @@ class _RegisterFormn extends StatelessWidget {
       child: Column(
         children: [
           SizedBox(height: 10),
-          CustomTextFormField(),
+          CustomTextFormField(
+
+          ),
+
           SizedBox(height: 10),
           CustomTextFormField(),
+
+          SizedBox(height: 10),
+          CustomTextFormField(
+            obscureText: true,
+          ),
 
 
           FilledButton.tonalIcon(
