@@ -48,9 +48,11 @@ class _RegisterFormn extends StatelessWidget {
     return Form(
       child: Column(
         children: [
-          TextFormField(),
-
+          SizedBox(height: 10),
           CustomTextFormField(),
+          SizedBox(height: 10),
+          CustomTextFormField(),
+
 
           FilledButton.tonalIcon(
             onPressed: (){}, 
