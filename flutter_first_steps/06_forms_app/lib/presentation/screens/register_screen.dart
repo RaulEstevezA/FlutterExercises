@@ -27,23 +27,38 @@ class _RegisterView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               const FlutterLogo(size: 100),
-              TextFormField(),
-              TextFormField(),
-              TextFormField(),
-              TextFormField(),
 
-              const SizedBox(height: 20),
-
-              FilledButton.tonalIcon(
-                onPressed: (){}, 
-                icon: const Icon(Icons.save),
-                label: const Text('Crear usuario'),
-                ),
-
-              const SizedBox(height: 20),
+              const _RegisterFormn(),
+      
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+
+class _RegisterFormn extends StatelessWidget {
+  const _RegisterFormn();
+
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      child: Column(
+        children: [
+          TextFormField(),
+
+          const SizedBox(height: 20),
+
+          FilledButton.tonalIcon(
+            onPressed: (){}, 
+            icon: const Icon(Icons.save),
+            label: const Text('Crear usuario'),
+            ),
+
+          const SizedBox(height: 20),
+        ],
       ),
     );
   }
