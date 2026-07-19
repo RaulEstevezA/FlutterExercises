@@ -5,6 +5,20 @@ class RegisterScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Nuevo usuario'),
+      ),
+      body: _RegisterView(),
+    );
+  }
+}
+
+class _RegisterView extends StatelessWidget {
+  const _RegisterView();
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
   }
 }
