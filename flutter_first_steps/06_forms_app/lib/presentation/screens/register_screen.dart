@@ -64,12 +64,23 @@ class _RegisterFormnState extends State<_RegisterFormn> {
           CustomTextFormField(
             label: 'Nombre de usuario',
             onChanged: (value) => username = value,
+            validator: (value){
+              if (value == null || value.trim().isEmpty) return 'Campo requerido';
+              if (value.length < 6) return 'Mas de 6 letras';
+              return null;
+            },
           ),
 
           SizedBox(height: 10),
           CustomTextFormField(
             label: 'Correo electrónico',
             onChanged: (value) => email = value,
+            validator: (value){
+              if (value == null || value.trim().isEmpty) return 'Campo requerido';
+              final emailRegExp = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$',);
+              if (!emailRegExp.hasMatch(value)) return 'No tiene formato requerido';
+              return null;
+            },
           ),
 
           SizedBox(height: 10),
@@ -77,11 +88,19 @@ class _RegisterFormnState extends State<_RegisterFormn> {
             label: 'Contraseña',
             onChanged: (value) => password = value,
             obscureText: true,
+            validator: (value){
+              if (value == null || value.trim().isEmpty) return 'Campo requerido';
+              if (value.length < 6) return 'Mas de 6 caracteres';
+              return null;
+            },
           ),
 
 
           FilledButton.tonalIcon(
-            onPressed: (){}, 
+            onPressed: (){
+              final isValid = _formKey.currentState!.validate();
+              if (isValid) return;
+            }, 
             icon: const Icon(Icons.save),
             label: const Text('Crear usuario'),
             ),
