@@ -50,6 +50,9 @@ class _RegisterFormn extends StatefulWidget {
 class _RegisterFormnState extends State<_RegisterFormn> {
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  String username = '';
+  String email = '';
+  String password = '';
 
   @override
   Widget build(BuildContext context) {
