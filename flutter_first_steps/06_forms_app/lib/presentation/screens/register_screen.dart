@@ -62,14 +62,20 @@ class _RegisterFormnState extends State<_RegisterFormn> {
         children: [
           SizedBox(height: 10),
           CustomTextFormField(
-            label: 'Nombre',
+            label: 'Nombre de usuario',
+            onChanged: (value) => username = value,
           ),
 
           SizedBox(height: 10),
-          CustomTextFormField(),
+          CustomTextFormField(
+            label: 'Correo electrónico',
+            onChanged: (value) => email = value,
+          ),
 
           SizedBox(height: 10),
           CustomTextFormField(
+            label: 'Contraseña',
+            onChanged: (value) => password = value,
             obscureText: true,
           ),
 
