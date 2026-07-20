@@ -40,17 +40,26 @@ class _RegisterView extends StatelessWidget {
 }
 
 
-class _RegisterFormn extends StatelessWidget {
+class _RegisterFormn extends StatefulWidget {
   const _RegisterFormn();
+
+  @override
+  State<_RegisterFormn> createState() => _RegisterFormnState();
+}
+
+class _RegisterFormnState extends State<_RegisterFormn> {
+
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return Form(
+      key: _formKey,
       child: Column(
         children: [
           SizedBox(height: 10),
           CustomTextFormField(
-
+            label: 'Nombre',
           ),
 
           SizedBox(height: 10),
