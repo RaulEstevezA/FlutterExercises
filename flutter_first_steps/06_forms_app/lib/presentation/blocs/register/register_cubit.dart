@@ -29,6 +29,5 @@ class RegisterCubit extends Cubit<RegisterFormState> {
       )
     );
   }
-
-
+  
 }
