@@ -12,7 +12,10 @@ class RegisterScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Nuevo usuario'),
       ),
-      body: _RegisterView(),
+      body: BlocProvider(
+        create: (context) => RegisterCubit(),
+        child:  _RegisterView(),
+        ),
     );
   }
 }
@@ -56,7 +59,7 @@ class _RegisterFormnState extends State<_RegisterFormn> {
   @override
   Widget build(BuildContext context) {
 
-    final registerCubit = context.watch<RegisterCubit>;
+    final registerCubit = context.watch<RegisterCubit>();
 
     return Form(
       key: _formKey,
@@ -65,7 +68,10 @@ class _RegisterFormnState extends State<_RegisterFormn> {
           SizedBox(height: 10),
           CustomTextFormField(
             label: 'Nombre de usuario',
-            onChanged: (value) => username = value,
+            onChanged: (value) {
+              registerCubit.usernameChanged(value);
+              _formKey.currentState?.validate();
+            },
             validator: (value){
               if (value == null || value.trim().isEmpty) return 'Campo requerido';
               if (value.length < 6) return 'Mas de 6 letras';
@@ -76,7 +82,10 @@ class _RegisterFormnState extends State<_RegisterFormn> {
           SizedBox(height: 10),
           CustomTextFormField(
             label: 'Correo electrónico',
-            onChanged: (value) => email = value,
+            onChanged: (value) {
+              registerCubit.emailChanged(value);
+              _formKey.currentState?.validate();
+            },
             validator: (value){
               if (value == null || value.trim().isEmpty) return 'Campo requerido';
               final emailRegExp = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$',);
@@ -88,7 +97,10 @@ class _RegisterFormnState extends State<_RegisterFormn> {
           SizedBox(height: 10),
           CustomTextFormField(
             label: 'Contraseña',
-            onChanged: (value) => password = value,
+            onChanged: (value) {
+              registerCubit.passwordChanged(value);
+              _formKey.currentState?.validate();
+            },
             obscureText: true,
             validator: (value){
               if (value == null || value.trim().isEmpty) return 'Campo requerido';
