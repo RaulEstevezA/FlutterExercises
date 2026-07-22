@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:forms_app/presentation/blocs/register/register_cubit.dart';
 import 'package:forms_app/presentation/widgets/widgets.dart';
 
 class RegisterScreen extends StatelessWidget {
@@ -50,12 +52,12 @@ class _RegisterFormn extends StatefulWidget {
 class _RegisterFormnState extends State<_RegisterFormn> {
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  String username = '';
-  String email = '';
-  String password = '';
 
   @override
   Widget build(BuildContext context) {
+
+    final registerCubit = context.watch<RegisterCubit>;
+
     return Form(
       key: _formKey,
       child: Column(
