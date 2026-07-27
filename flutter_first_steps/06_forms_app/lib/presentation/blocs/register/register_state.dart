@@ -21,7 +21,7 @@ class RegisterFormState extends Equatable {
   RegisterFormState copyWith ({
     FormStatus? formStatus,
     bool? isValid,
-    String? username,
+    Username? username,
     String? email,
     String? password,
   }) => RegisterFormState(
