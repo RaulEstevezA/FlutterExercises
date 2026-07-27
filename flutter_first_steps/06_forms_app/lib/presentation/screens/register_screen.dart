@@ -20,9 +20,14 @@ class RegisterScreen extends StatelessWidget {
   }
 }
 
-class _RegisterView extends StatelessWidget {
+class _RegisterView extends StatefulWidget {
   const _RegisterView();
 
+  @override
+  State<_RegisterView> createState() => _RegisterViewState();
+}
+
+class _RegisterViewState extends State<_RegisterView> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -60,30 +65,26 @@ class _RegisterFormnState extends State<_RegisterFormn> {
   Widget build(BuildContext context) {
 
     final registerCubit = context.watch<RegisterCubit>();
+    final username = registerCubit.state.username;
+    final password = registerCubit.state.password;
+
 
     return Form(
-      key: _formKey,
       child: Column(
         children: [
           SizedBox(height: 10),
           CustomTextFormField(
             label: 'Nombre de usuario',
-            onChanged: (value) {
-              registerCubit.usernameChanged(value);
-              _formKey.currentState?.validate();
-            },
-            validator: (value){
-              if (value == null || value.trim().isEmpty) return 'Campo requerido';
-              if (value.length < 6) return 'Mas de 6 letras';
-              return null;
-            },
+            onChanged: registerCubit.usernameChanged,
+            errorMessage: username.isPure || username.isValid
+              ? null
+              : 'Usuario no válido',
           ),
 
           SizedBox(height: 10),
           CustomTextFormField(
             label: 'Correo electrónico',
             onChanged: (value) {
-              registerCubit.emailChanged(value);
               _formKey.currentState?.validate();
             },
             validator: (value){
@@ -98,7 +99,6 @@ class _RegisterFormnState extends State<_RegisterFormn> {
           CustomTextFormField(
             label: 'Contraseña',
             onChanged: (value) {
-              registerCubit.passwordChanged(value);
               _formKey.currentState?.validate();
             },
             obscureText: true,
@@ -112,8 +112,7 @@ class _RegisterFormnState extends State<_RegisterFormn> {
 
           FilledButton.tonalIcon(
             onPressed: (){
-              final isValid = _formKey.currentState!.validate();
-              if (isValid) return;
+              registerCubit.onSubmit();
             }, 
             icon: const Icon(Icons.save),
             label: const Text('Crear usuario'),
