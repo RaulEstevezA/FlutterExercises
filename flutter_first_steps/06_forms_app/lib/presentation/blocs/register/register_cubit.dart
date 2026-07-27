@@ -9,6 +9,16 @@ part 'register_state.dart';
 class RegisterCubit extends Cubit<RegisterFormState> {
   RegisterCubit() : super(const RegisterFormState());
 
+  void onSubmit(){
+    emit(
+      state.copyWith(
+        formStatus: FormStatus.validating,
+        username: Username.dirty(state.username.value),
+        password: Password.dirty(state.password.value),
+      )
+    );
+  }
+
   void usernameChanged (String value){
     final username = Username.dirty(value);
     emit(
