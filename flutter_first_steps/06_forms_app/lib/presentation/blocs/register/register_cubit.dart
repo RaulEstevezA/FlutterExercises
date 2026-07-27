@@ -14,7 +14,7 @@ class RegisterCubit extends Cubit<RegisterFormState> {
     emit(
       state.copyWith(
         username: username,
-        isValid: Formz.validate([username])
+        isValid: Formz.validate([username, state.password])
       )
     );
   }
