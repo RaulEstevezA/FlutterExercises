@@ -1,10 +1,10 @@
 import 'package:formz/formz.dart';
 
 // Define input validation errors
-enum UsernameError { empty }
+enum UsernameError { empty, lenght }
 
 // Extend FormzInput and provide the input type and error type.
-class Username extends FormzInput<String, NameInputError> {
+class Username extends FormzInput<String, UsernameError> {
   // Call super.pure to represent an unmodified form input.
   const Username.pure() : super.pure('');
 
@@ -13,7 +13,7 @@ class Username extends FormzInput<String, NameInputError> {
 
   // Override validator to handle validating a given input value.
   @override
-  NameInputError? validator(String value) {
-    return value.isEmpty ? NameInputError.empty : null;
+  UsernameError? validator(String value) {
+    return value.isEmpty ? UsernameError.empty : null;
   }
 }
