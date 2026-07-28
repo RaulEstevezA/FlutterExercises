@@ -99,15 +99,18 @@ class _RegisterFormnState extends State<_RegisterFormn> {
           SizedBox(height: 10),
           CustomTextFormField(
             label: 'Contraseña',
-            onChanged: (value) {
-              _formKey.currentState?.validate();
-            },
             obscureText: true,
-            validator: (value){
-              if (value == null || value.trim().isEmpty) return 'Campo requerido';
-              if (value.length < 6) return 'Mas de 6 caracteres';
-              return null;
-            },
+            onChanged: registerCubit.passwordChanged,
+            errorMessage: password.errorMessage,
+            // onChanged: (value) {
+            //   _formKey.currentState?.validate();
+            // },
+            
+            // validator: (value){
+            //   if (value == null || value.trim().isEmpty) return 'Campo requerido';
+            //   if (value.length < 6) return 'Mas de 6 caracteres';
+            //   return null;
+            // },
           ),
 
 
