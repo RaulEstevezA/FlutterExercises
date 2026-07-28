@@ -76,9 +76,10 @@ class _RegisterFormnState extends State<_RegisterFormn> {
           CustomTextFormField(
             label: 'Nombre de usuario',
             onChanged: registerCubit.usernameChanged,
-            errorMessage: username.isPure || username.isValid
-              ? null
-              : 'Usuario no válido',
+            errorMessage: username.errorMessage,
+            // errorMessage: username.isPure || username.isValid
+            //   ? null
+            //   : 'Usuario no válido',
           ),
 
           SizedBox(height: 10),
