@@ -102,7 +102,7 @@ Rutas disponibles:
 | Ruta | Pantalla | Propósito |
 | --- | --- | --- |
 | `/` | `HomeScreen` | Pantalla principal |
-| `/cubits` | `CubirCounterScreen` | Contador gestionado con `Cubit` |
+| `/cubits` | `CubitCounterScreen` | Contador gestionado con `Cubit` |
 | `/counter-bloc` | `BlockCounterScreen` | Contador gestionado con `BLoC` |
 | `/new-user` | `RegisterScreen` | Formulario de registro validado con `Cubit` y `formz` |
 
