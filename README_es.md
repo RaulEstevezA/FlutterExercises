@@ -21,8 +21,9 @@ La carpeta `flutter_first_steps` contiene las primeras aplicaciones Flutter del 
 - [Maybe App](flutter_first_steps/03_maybe_app/README_es.md)
 - [Tok Tik](flutter_first_steps/04_tok_tik/README_es.md)
 - [Widget App](flutter_first_steps/05_widget_app/README_es.md)
+- [Forms App](flutter_first_steps/06_forms_app/README_es.md)
 
-Estos ejercicios cubren la estructura básica de los proyectos Flutter, widgets sin estado y con estado, componentes de Material, interacción, lógica sencilla de negocio, gestión de estado, peticiones a APIs, assets locales, reproducción de video, navegación, temas, piezas reutilizables de interfaz y uso de paquetes.
+Estos ejercicios cubren la estructura básica de los proyectos Flutter, widgets sin estado y con estado, componentes de Material, interacción, lógica sencilla de negocio, gestión de estado, peticiones a APIs, assets locales, reproducción de video, navegación, temas, piezas reutilizables de interfaz, uso de paquetes y validación de formularios.
 
 ## Objetivo
 
