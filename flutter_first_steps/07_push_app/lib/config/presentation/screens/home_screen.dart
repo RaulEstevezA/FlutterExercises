@@ -7,8 +7,25 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Estado de los permisos'),
+        title: Text('Permisos'),
+        actions: [
+          IconButton(onPressed: (){
+
+            // TODO: Solicitar permisos de notificaciones
+
+          }, icon: const Icon(Icons.settings))
+        ],
       ),
+      body: _HomeView(),
     );
+  }
+}
+
+class _HomeView extends StatelessWidget {
+  const _HomeView();
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }
