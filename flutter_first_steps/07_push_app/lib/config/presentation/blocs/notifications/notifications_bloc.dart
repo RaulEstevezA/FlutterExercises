@@ -29,11 +29,18 @@ class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
         status: event.status
       )
     );
+    _getFCMToken();
   }
 
   void _initialStatusCheck() async {
     final settings = await messaging.getNotificationSettings();
     add(NotificationsStatusChanged(status: settings.authorizationStatus));
+  }
+
+  void _getFCMToken() async {
+    if (state.status != AuthorizationStatus.authorized) return;
+    final token = await messaging.getToken();
+    print(token);
   }
 
   void requestPermission() async {
