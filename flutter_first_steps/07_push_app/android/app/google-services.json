@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "362101843175",
+    "project_id": "app-push-flutter",
+    "storage_bucket": "app-push-flutter.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:362101843175:android:426f868de2d9fe386c6e42",
+        "android_client_info": {
+          "package_name": "com.raulestevez.push_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCb1UJ2HnnhZRBvAgeMmsE-94t3LwivUto"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
