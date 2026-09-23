@@ -4,14 +4,15 @@ import 'package:push_app/config/presentation/blocs/notifications/notifications_b
 import 'package:push_app/config/router/app_router.dart';
 import 'package:push_app/config/theme/app_theme.dart';
 
-void main() {
+void main() async {
+
+  WidgetsFlutterBinding.ensureInitialized();
+
   runApp(
     MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (_) => NotificationsBloc(),
-        ),
-
+          create: (_) => NotificationsBloc(),)
       ],
       child: const MainApp(),
     )
