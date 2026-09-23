@@ -10,7 +10,16 @@ sealed class NotificationsState extends Equatable {
     this.status = AuthorizationStatus.notDetermined, 
     this.notifications = const[]}
   );
-  
+
+  NotificationsState copyWith({
+    AuthorizationStatus? status,
+    List<dynamic>? notifications,
+  }) =>
+      NotificationsInitial(
+        status: status ?? this.status,
+        notifications: notifications ?? this.notifications,
+      );
+
   @override
   List<Object> get props => [];
 }
