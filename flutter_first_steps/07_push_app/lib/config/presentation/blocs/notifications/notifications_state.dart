@@ -1,9 +1,8 @@
 part of 'notifications_bloc.dart';
 
 sealed class NotificationsState extends Equatable {
+  
   final AuthorizationStatus status;
-  //TODO: Crear mi modelo de notificaciones
-
   final List<dynamic> notifications;
 
   const NotificationsState({
@@ -15,7 +14,7 @@ sealed class NotificationsState extends Equatable {
     AuthorizationStatus? status,
     List<dynamic>? notifications,
   }) =>
-      NotificationsInitial(
+      NotificationsState(
         status: status ?? this.status,
         notifications: notifications ?? this.notifications,
       );
@@ -23,5 +22,3 @@ sealed class NotificationsState extends Equatable {
   @override
   List<Object> get props => [];
 }
-
-final class NotificationsInitial extends NotificationsState {}
