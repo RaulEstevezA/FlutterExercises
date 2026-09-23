@@ -14,7 +14,11 @@ class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
   NotificationsBloc() : super(const NotificationsState() ) {
     on<NotificationsStatusChanged>(_notificationStatusChanged);
 
+    // Verificar estado de las notificaciones
     _initialStatusCheck();
+
+    // Listener para notificaciones Foreground
+    _onForegroundMessage();
   }
 
   static Future<void> initializeFirebaseNotifications() async {
@@ -41,6 +45,18 @@ class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
     if (state.status != AuthorizationStatus.authorized) return;
     final token = await messaging.getToken();
     print(token);
+  }
+
+  void _handleRemoteMessage( RemoteMessage message ) {
+    print('todo bien');
+    print('mensaje data ${message.data}');
+    if(message.notification == null) return;
+
+    print('mensaje continene ${message.notification}');
+  }
+
+  void _onForegroundMessage(){
+    FirebaseMessaging.onMessage.listen(_handleRemoteMessage);
   }
 
   void requestPermission() async {
