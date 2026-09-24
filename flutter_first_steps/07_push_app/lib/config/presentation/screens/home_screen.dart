@@ -10,17 +10,17 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: context.select(
-          (NotificationsBloc bloc) => Text('${bloc.state.status}')
-        ),
+            (NotificationsBloc bloc) => Text('${bloc.state.status}')),
         actions: [
-          IconButton(onPressed: (){
-
-            context.read<NotificationsBloc>().requestPermission();
-          }, 
-          icon: const Icon(Icons.settings))
+          IconButton(
+            onPressed: () {
+              context.read<NotificationsBloc>().requestPermission();
+            },
+            icon: const Icon(Icons.settings),
+          ),
         ],
       ),
-      body: _HomeView(),
+      body: const _HomeView(),
     );
   }
 }
@@ -30,10 +30,21 @@ class _HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final notifications =
+        context.watch<NotificationsBloc>().state.notifications;
+
     return ListView.builder(
-      itemCount: 0,
+      itemCount: notifications.length,
       itemBuilder: (BuildContext context, int index) {
-        return const ListTile();
+        final notification = notifications[index];
+
+        return ListTile(
+          title: Text(notification.title),
+          subtitle: Text(notification.body),
+          leading: notification.imageUrl != null
+              ? Image.network(notification.imageUrl!)
+              : null,
+        );
       },
     );
   }

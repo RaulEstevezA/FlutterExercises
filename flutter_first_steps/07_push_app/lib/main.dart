@@ -6,20 +6,18 @@ import 'package:push_app/config/router/app_router.dart';
 import 'package:push_app/config/theme/app_theme.dart';
 
 void main() async {
-
   WidgetsFlutterBinding.ensureInitialized();
   FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
   await NotificationsBloc.initializeFirebaseNotifications();
 
-  runApp(
-    MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (_) => NotificationsBloc(),)
-      ],
-      child: const MainApp(),
-    )
-  );
+  runApp(MultiBlocProvider(
+    providers: [
+      BlocProvider(
+        create: (_) => NotificationsBloc(),
+      ),
+    ],
+    child: const MainApp(),
+  ));
 }
 
 class MainApp extends StatelessWidget {
@@ -27,20 +25,10 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final notifications = context.watch<NotificationsBloc>().state.notifications;
-
-    return ListView.builder(
-      itemCount: notifications.length,
-      itemBuilder: (BuildContext context, int index) {
-        final notification = notifications[index];
-        return ListTile(
-          title: Text(notification.title),
-          subtitle: Text(notification.body),
-          leading: notification.imageUrl != null 
-            ? Image.network(notification.imageUrl!) 
-            : null,
-        );
-      }
+    return MaterialApp.router(
+      routerConfig: appRouter,
+      debugShowCheckedModeBanner: false,
+      theme: AppTheme().getTheme(),
     );
   }
 }
