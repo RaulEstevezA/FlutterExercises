@@ -33,8 +33,12 @@ class MainApp extends StatelessWidget {
       itemCount: notifications.length,
       itemBuilder: (BuildContext context, int index) {
         final notification = notifications[index];
-        return const ListTile(
-          // TODO 4: completar esta implementacion
+        return ListTile(
+          title: Text(notification.title),
+          subtitle: Text(notification.body),
+          leading: notification.imageUrl != null 
+            ? Image.network(notification.imageUrl!) 
+            : null,
         );
       }
     );
