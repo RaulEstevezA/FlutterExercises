@@ -11,3 +11,5 @@ class NotificationsStatusChanged extends NotificationsEvent {
   final AuthorizationStatus status;
   const NotificationsStatusChanged({required this.status});
 }
+
+// TODO 2: NotificationReciber #PushMessage

@@ -27,10 +27,16 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      routerConfig: appRouter,
-      debugShowCheckedModeBanner: false,
-      theme: AppTheme().getTheme(),
+    final notifications = context.watch<NotificationsBloc>().state.notifications;
+
+    return ListView.builder(
+      itemCount: notifications.length,
+      itemBuilder: (BuildContext context, int index) {
+        final notification = notifications[index];
+        return const ListTile(
+          // TODO 4: completar esta implementacion
+        );
+      }
     );
   }
 }

@@ -22,6 +22,8 @@ class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
   NotificationsBloc() : super(const NotificationsState() ) {
     on<NotificationsStatusChanged>(_notificationStatusChanged);
 
+    // TODO 3: Crear el listener # _onPush;essageRecived
+
     // Verificar estado de las notificaciones
     _initialStatusCheck();
 
@@ -68,6 +70,8 @@ class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
       ? message.notification!.android?.imageUrl 
       : message.notification!.apple?.imageUrl 
     );
+
+    // TODO 1: añadir un nuevo evento
 
   }
 
