@@ -98,7 +98,7 @@ class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
       sound: true
     );
 
-    await requestPermissionLocalNotifications();
+    await LocalNotifications.requestPermissionLocalNotifications();
 
     add(NotificationsStatusChanged(status: settings.authorizationStatus));
 
