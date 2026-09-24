@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
@@ -9,11 +11,8 @@ part 'notifications_event.dart';
 part 'notifications_state.dart';
 
 Future<void> firebaseMessagingBackgroundHandler(RemoteMessage message) async {
-  print('Handling a background message ${message.messageId}');
-  print('mensaje data ${message.data}');
   if(message.notification == null) return;
 
-  print('mensaje continene ${message.notification}');
 }
 
 class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
@@ -57,11 +56,19 @@ class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
   }
 
   void _handleRemoteMessage( RemoteMessage message ) {
-    print('todo bien');
-    print('mensaje data ${message.data}');
     if(message.notification == null) return;
 
-    print('mensaje continene ${message.notification}');
+    final notification = PushMessage(
+      messageId: message.messageId?.replaceAll(':', '').replaceAll('%', '') ?? '', 
+      title: message.notification!.title ?? '', 
+      body: message.notification!.body ?? '',
+      sentDate: message.sentTime ?? DateTime.now(), 
+      data: message.data, 
+      imageUrl: Platform.isAndroid 
+      ? message.notification!.android?.imageUrl 
+      : message.notification!.apple?.imageUrl 
+    );
+
   }
 
   void _onForegroundMessage(){
