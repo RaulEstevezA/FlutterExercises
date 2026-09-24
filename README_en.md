@@ -22,8 +22,9 @@ The `flutter_first_steps` folder contains the first Flutter applications in the 
 - [Tok Tik](flutter_first_steps/04_tok_tik/README.md)
 - [Widget App](flutter_first_steps/05_widget_app/README.md)
 - [Forms App](flutter_first_steps/06_forms_app/README_en.md)
+- [Push App](flutter_first_steps/07_push_app/README.md)
 
-These exercises cover the basic structure of Flutter projects, stateless and stateful widgets, Material components, interaction, simple business logic, state management, API requests, local assets, video playback, navigation, theming, reusable UI pieces, package usage, and form validation.
+These exercises cover the basic structure of Flutter projects, stateless and stateful widgets, Material components, interaction, simple business logic, state management, API requests, local assets, video playback, navigation, theming, reusable UI pieces, package usage, form validation, and push notifications with Firebase.
 
 ## Purpose
 
