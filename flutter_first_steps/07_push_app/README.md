@@ -16,7 +16,7 @@ The main goal of this project is not to build a production application, but to u
 | Platform | Status |
 | --- | --- |
 | Android | Fully tested: permissions, foreground, background and terminated delivery, local notification with a custom sound, and navigation to the detail screen. |
-| iOS | The app builds and runs on a physical device, but push delivery could not be tested. Apple requires a paid Apple Developer account to set up APNs (Apple Push Notification service), which is the channel FCM uses to deliver messages on iOS. |
+| iOS | Code completed: `flutter_local_notifications` is configured for iOS (`DarwinInitializationSettings`, `DarwinNotificationDetails` and `AppDelegate`), and permissions are requested from both Firebase Messaging and the local notifications plugin. The app builds and runs on a physical device, but push delivery could not be tested end to end. Apple requires a paid Apple Developer account to set up APNs (Apple Push Notification service), which is the channel FCM uses to deliver messages on iOS. |
 
 ## Technologies
 
@@ -72,7 +72,7 @@ The project was connected to Firebase with the FlutterFire CLI, which generated:
 - `lib/firebase_options.dart`: `DefaultFirebaseOptions.currentPlatform` with the keys for each platform.
 - `android/app/google-services.json` and `ios/Runner/GoogleService-Info.plist`: native configuration files.
 
-On Android, the `com.google.gms.google-services` plugin is applied and `coreLibraryDesugaring` is enabled, which `flutter_local_notifications` requires. On iOS, the minimum platform version was raised to iOS 15.0.
+On Android, the `com.google.gms.google-services` plugin is applied and `coreLibraryDesugaring` is enabled, which `flutter_local_notifications` requires. On iOS, the minimum platform version was raised to iOS 15.0 and `AppDelegate.swift` was adapted for `flutter_local_notifications` (see [iOS Setup](#ios-setup)).
 
 ## Entry Point
 
@@ -84,7 +84,7 @@ void main() async {
   FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
 
   await NotificationsBloc.initializeFirebaseNotifications();
-  //await LocalNotifications.initializeLocalNotifications();
+  await LocalNotifications.initializeLocalNotifications();
 
   runApp(MultiBlocProvider(
     providers: [
@@ -102,7 +102,7 @@ void main() async {
 
 Before the UI starts, the background message handler is registered and Firebase is initialized. `NotificationsBloc` is provided at the root of the app so every screen can read the received notifications.
 
-Local notification initialization is currently commented out so the app can run on iOS, since the iOS setup for `flutter_local_notifications` is still pending (`// TODO iOS`).
+Local notifications are initialized on both Android and iOS before `runApp`, so the plugin is ready when the first foreground message arrives.
 
 `MainApp` builds a `MaterialApp.router` and wraps all navigation with `HandleNotificationInteractions` through the `builder` property.
 
@@ -260,23 +260,43 @@ File: `lib/config/local_notifications/local_notifications.dart`.
 
 `LocalNotifications` groups everything related to `flutter_local_notifications` into static methods:
 
-- `requestPermissionLocalNotifications()`: requests notification permission on Android.
-- `initializeLocalNotifications()`: sets up the plugin with the `app_icon` icon and registers the callback that runs when a notification is tapped.
-- `showLocalNotifications(...)`: shows a notification with maximum importance and a custom sound (`res/raw/notification.mp3`).
-- `onDidReceiveNotificationResponse(...)`: navigates to `/push-details/<payload>`, where the `payload` is the message `messageId`.
+- `requestPermissionLocalNotifications()`: requests notification permission on Android (`requestNotificationsPermission()`) and on iOS (`requestPermissions(alert: true, badge: true, sound: true)`).
+- `initializeLocalNotifications()`: sets up the plugin with `AndroidInitializationSettings('app_icon')` and `DarwinInitializationSettings()`, and registers the callback that runs when a notification is tapped.
+- `showLocalNotifications(...)`: shows the notification without blocking the caller (`unawaited`). On Android it uses maximum importance and a custom sound (`res/raw/notification.mp3`); on iOS it uses `DarwinNotificationDetails` with sound enabled.
+- `onDidReceiveNotificationResponse(...)`: navigates to `/push-details/<payload>`, where the `payload` is the message `messageId`. If the payload is empty, it does nothing.
 
 ```dart
-const androidDetails = AndroidNotificationDetails(
-  'channelId',
-  'channelName',
-  playSound: true,
-  sound: RawResourceAndroidNotificationSound('notification'),
-  importance: Importance.max,
-  priority: Priority.high,
+const notificationDetails = NotificationDetails(
+  android: AndroidNotificationDetails(
+    'channelId',
+    'channelName',
+    playSound: true,
+    sound: RawResourceAndroidNotificationSound('notification'),
+    importance: Importance.max,
+    priority: Priority.high,
+  ),
+  iOS: DarwinNotificationDetails(presentSound: true),
 );
 ```
 
-For now this class only has Android settings; the iOS part is marked as `TODO`.
+### iOS Setup
+
+File: `ios/Runner/AppDelegate.swift`.
+
+For `flutter_local_notifications` to work on iOS, `AppDelegate` needs two extra steps before registering the plugins:
+
+```swift
+FlutterLocalNotificationsPlugin.setPluginRegistrantCallback { (registry) in
+    GeneratedPluginRegistrant.register(with: registry)
+}
+
+if #available(iOS 10.0, *) {
+  UNUserNotificationCenter.current().delegate = self as UNUserNotificationCenterDelegate
+}
+```
+
+- `setPluginRegistrantCallback` registers the plugins in the isolate the plugin uses to handle notification actions.
+- Assigning the `UNUserNotificationCenter` delegate lets iOS show notifications while the app is in the foreground and forward taps to the plugin.
 
 ## Screens
 
@@ -318,7 +338,7 @@ This app is useful for practicing:
 - Constructor dependency injection to decouple the bloc from plugins.
 - Separating the domain entity (`PushMessage`) from the Firebase model (`RemoteMessage`).
 - GoRouter routes with parameters and navigation outside the widget tree.
-- Android and iOS specific native configuration.
+- Android and iOS specific native configuration (`build.gradle.kts`, `Podfile` and `AppDelegate.swift`).
 
 ## Running the Project
 
@@ -354,7 +374,7 @@ flutterfire configure
 
 ## Summary
 
-`Push App` is a learning application focused on push notifications with Firebase Cloud Messaging. It covers the full journey of a message, from being sent in Firebase to being shown in the list and in its detail screen, with a `Bloc` as the single source of truth and local notifications for messages that arrive while the app is open. The Android side is fully tested; the iOS side runs on a physical device, but push delivery is still pending until an Apple Developer account is available.
+`Push App` is a learning application focused on push notifications with Firebase Cloud Messaging. It covers the full journey of a message, from being sent in Firebase to being shown in the list and in its detail screen, with a `Bloc` as the single source of truth and local notifications for messages that arrive while the app is open. The Android side is fully tested; the iOS code is complete and the app runs on a physical device, but end-to-end push delivery is still pending until an Apple Developer account is available to set up APNs.
 
 ## Navigation
 
