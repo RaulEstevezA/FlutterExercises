@@ -2,6 +2,18 @@ import 'package:teslo_shop/features/shared/shared.dart';
 import 'package:formz/formz.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+
+// 3 - StateNotifierProvider - consume afuera
+final loginFormProvider = StateNotifierProvider.autoDispose<LoginFormNotifier,LoginFormState>((ref) {
+
+  final loginUserCallback = ref.watch(authProvider.notifier).loginUser;
+
+
+  return LoginFormNotifier(
+    loginUserCallback:loginUserCallback
+  );
+});
+
 // 1 - State del provider
 class LoginFormState {
 
@@ -91,7 +103,6 @@ class LoginFormNotifier extends StateNotifier<LoginFormState> {
       password: password,
       isValid: Formz.validate([ email, password ])
     );
-
   }
-
 }
+
