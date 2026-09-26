@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:teslo_shop/features/auth/presentation/providers/providers.dart';
 import 'package:teslo_shop/features/shared/shared.dart';
 
 
@@ -60,11 +62,27 @@ class RegisterScreen extends StatelessWidget {
   }
 }
 
-class _RegisterForm extends StatelessWidget {
+class _RegisterForm extends ConsumerWidget {
   const _RegisterForm();
 
+  void showSnackbar( BuildContext context, String message ) {
+    ScaffoldMessenger.of(context).hideCurrentSnackBar();
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(message))
+    );
+  }
+
+
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+
+    final registerForm = ref.watch(registerFormProvider);
+
+    ref.listen(authProvider, (previous, next) {
+      if ( next.errorMessage.isEmpty ) return;
+      showSnackbar( context, next.errorMessage );
+    });
+
 
     final textStyles = Theme.of(context).textTheme;
 
@@ -78,28 +96,44 @@ class _RegisterForm extends StatelessWidget {
           // const SizedBox( height: 50 ),
           const Spacer(),
 
-          const CustomTextFormField(
+          CustomTextFormField(
             label: 'Nombre completo',
-            keyboardType: TextInputType.emailAddress,
+            keyboardType: TextInputType.name,
+            onChanged: ref.read(registerFormProvider.notifier).onFullNameChanged,
+            errorMessage: registerForm.isFormPosted ?
+               registerForm.fullName.errorMessage 
+               : null,
           ),
           const SizedBox( height: 30 ),
 
-          const CustomTextFormField(
+          CustomTextFormField(
             label: 'Correo',
             keyboardType: TextInputType.emailAddress,
+            onChanged: ref.read(registerFormProvider.notifier).onEmailChange,
+            errorMessage: registerForm.isFormPosted ?
+               registerForm.email.errorMessage 
+               : null,
           ),
           const SizedBox( height: 30 ),
 
-          const CustomTextFormField(
+          CustomTextFormField(
             label: 'Contraseña',
             obscureText: true,
+            onChanged: ref.read(registerFormProvider.notifier).onPasswordChanged,
+            errorMessage: registerForm.isFormPosted ?
+               registerForm.password.errorMessage 
+               : null,
           ),
     
           const SizedBox( height: 30 ),
 
-          const CustomTextFormField(
+          CustomTextFormField(
             label: 'Repita la contraseña',
             obscureText: true,
+            onChanged: ref.read(registerFormProvider.notifier).onConfirmedPasswordChanged,
+            errorMessage: registerForm.isFormPosted ?
+               registerForm.confirmedPassword.errorMessage 
+               : null,
           ),
     
           const SizedBox( height: 30 ),
@@ -110,9 +144,9 @@ class _RegisterForm extends StatelessWidget {
             child: CustomFilledButton(
               text: 'Crear',
               buttonColor: Colors.black,
-              onPressed: (){
-
-              },
+              onPressed: registerForm.isPosting
+                ? null
+                : ref.read(registerFormProvider.notifier).onFormSubmit,
             )
           ),
 
