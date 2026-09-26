@@ -89,8 +89,13 @@ class LoginFormNotifier extends StateNotifier<LoginFormState> {
 
     if ( !state.isValid ) return;
 
+    state = state.copyWith(isPosting: true);
+
     await loginUserCallback( state.email.value, state.password.value );
 
+    // El provider es autoDispose: si el login fue bien, la pantalla ya no existe
+    if ( !mounted ) return;
+    state = state.copyWith(isPosting: false);
   }
 
   _touchEveryField() {
